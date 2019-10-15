@@ -9,4 +9,51 @@
 import UIKit
 
 class PolygonCell: UICollectionViewCell {
+    
+    @IBOutlet private var containerView: UIView!
+    
+    private var path = UIBezierPath()
+    private let shapeLayer = CAShapeLayer()
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupView()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setupPath()
+        addBorder()
+        
+        createPolygonalMask()
+    }
+    
+    private func setupView() {
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 20
+        layer.shadowOpacity = 0.8
+        layer.shadowColor = UIColor.black.cgColor
+    }
+    
+    private func setupPath() {
+        path = UIBezierPath(ovalIn: bounds)
+    }
+    
+    private func addBorder() {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = Colors.color4.cgColor
+        shapeLayer.lineWidth = 5
+        layer.addSublayer(shapeLayer)
+    }
+    
+    private func createPolygonalMask() {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        containerView.layer.mask = maskLayer
+    }
 }
