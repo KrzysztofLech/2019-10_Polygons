@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PolygonCell" customModule="Polygons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVj-bD-I7x" userLabel="Content View">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_m1" translatesAutoresizingMaskIntoConstraints="NO" id="ZaK-gJ-LPV">
+                                <rect key="frame" x="-265" y="30" width="680" height="77"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mna-Xl-iTQ" userLabel="H Line">
+                                <rect key="frame" x="37.5" y="107" width="75" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="MyM-Vg-NCw"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzL-Ba-GCr">
+                                <rect key="frame" x="37.5" y="112" width="75" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="skw-bg-TZD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Color1-1"/>
+                        <constraints>
+                            <constraint firstItem="ZaK-gJ-LPV" firstAttribute="centerX" secondItem="aVj-bD-I7x" secondAttribute="centerX" id="05B-nL-5I6"/>
+                            <constraint firstItem="nzL-Ba-GCr" firstAttribute="width" secondItem="aVj-bD-I7x" secondAttribute="width" multiplier="1:2" id="DX9-LW-tOP"/>
+                            <constraint firstItem="ZaK-gJ-LPV" firstAttribute="top" secondItem="aVj-bD-I7x" secondAttribute="top" constant="30" id="FQt-Ko-Iix"/>
+                            <constraint firstItem="nzL-Ba-GCr" firstAttribute="top" secondItem="mna-Xl-iTQ" secondAttribute="bottom" constant="4" id="Hrv-oz-pcF"/>
+                            <constraint firstItem="mna-Xl-iTQ" firstAttribute="centerX" secondItem="aVj-bD-I7x" secondAttribute="centerX" id="UGc-HH-4ba"/>
+                            <constraint firstAttribute="bottom" secondItem="nzL-Ba-GCr" secondAttribute="bottom" constant="20" id="Ukh-G0-hcO"/>
+                            <constraint firstItem="mna-Xl-iTQ" firstAttribute="top" secondItem="ZaK-gJ-LPV" secondAttribute="bottom" id="ncT-4S-LlN"/>
+                            <constraint firstItem="nzL-Ba-GCr" firstAttribute="centerX" secondItem="aVj-bD-I7x" secondAttribute="centerX" id="paj-UB-EGb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="mna-Xl-iTQ" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="1:2" id="0sj-Y5-V97"/>
+                <constraint firstAttribute="bottom" secondItem="aVj-bD-I7x" secondAttribute="bottom" id="BWr-Uv-nUA"/>
+                <constraint firstItem="aVj-bD-I7x" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nag-Hw-CNf"/>
+                <constraint firstAttribute="trailing" secondItem="aVj-bD-I7x" secondAttribute="trailing" id="QWw-1H-FA5"/>
+                <constraint firstItem="aVj-bD-I7x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="R96-UB-Be4"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="avatar_m1" width="680" height="680"/>
+        <namedColor name="Color1-1">
+            <color red="0.9137254901960784" green="0.64313725490196083" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

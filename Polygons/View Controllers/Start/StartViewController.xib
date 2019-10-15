@@ -29,8 +29,8 @@
                     <color key="textColor" name="Color1-3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xk1-V7-tI0">
-                    <rect key="frame" x="170.66666666666666" y="322" width="34" height="82"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xk1-V7-tI0">
+                    <rect key="frame" x="154" y="322" width="67" height="82"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="60"/>
                     <color key="textColor" name="Color1-2"/>
                     <nil key="highlightedColor"/>

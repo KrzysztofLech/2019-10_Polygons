@@ -10,7 +10,7 @@ final class StartViewController: UIViewController {
     @IBOutlet private var personsNumberLabel: UILabel!
     @IBOutlet private var addButtons: [AddPersonButton]!
     
-    private var personNumber = 1 {
+    private var personNumber = 20 {
         didSet {
             personsNumberLabel.text = String(personNumber)
         }
