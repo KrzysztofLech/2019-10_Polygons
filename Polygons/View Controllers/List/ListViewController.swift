@@ -16,13 +16,19 @@ final class ListViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    
     private let personNumber: Int
+    private let cellSize: CGSize
+    private let viewModel: ListViewModel
     
     // MARK: - init methods
     
     init(personNumber: Int) {
         self.personNumber = personNumber
+        
+        let cellWidth = UIScreen.main.bounds.width - Constants.outerPadding * 2
+        cellSize = CGSize(width: cellWidth, height: cellWidth)
+        self.viewModel = ListViewModel(personsQuantity: personNumber, cellSize: cellSize)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -51,22 +57,27 @@ final class ListViewController: UIViewController {
     }
 }
 
+// MARK: - Collection View methods
+
 extension ListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return personNumber
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PolygonCell.toString(), for: indexPath) as? PolygonCell else { return UICollectionViewCell() }
+        guard
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PolygonCell.toString(), for: indexPath) as? PolygonCell,
+            let cellData = viewModel.getCellData(forIndex: indexPath.item)
+            else { return UICollectionViewCell() }
         
+        cell.configure(withData: cellData)
         return cell
     }
 }
 
 extension ListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = view.bounds.size.width - Constants.outerPadding * 2
-        return CGSize(width: cellSize, height: cellSize)
+        return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

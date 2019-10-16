@@ -11,10 +11,11 @@ import UIKit
 class PolygonCell: UICollectionViewCell {
     
     @IBOutlet private var containerView: UIView!
+    @IBOutlet private var personAvatarImageView: UIImageView!
+    @IBOutlet private var personNameLabel: UILabel!
     
     private var path = UIBezierPath()
     private let shapeLayer = CAShapeLayer()
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,9 +26,7 @@ class PolygonCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        setupPath()
         addBorder()
-        
         createPolygonalMask()
     }
     
@@ -36,10 +35,6 @@ class PolygonCell: UICollectionViewCell {
         layer.shadowRadius = 20
         layer.shadowOpacity = 0.8
         layer.shadowColor = UIColor.black.cgColor
-    }
-    
-    private func setupPath() {
-        path = UIBezierPath(ovalIn: bounds)
     }
     
     private func addBorder() {
@@ -55,5 +50,12 @@ class PolygonCell: UICollectionViewCell {
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         containerView.layer.mask = maskLayer
+    }
+    
+    func configure(withData data: CellData) {
+        containerView.backgroundColor = data.backgroundColor
+        path = data.path
+        personAvatarImageView.image = data.person.avatar
+        personNameLabel.text = data.person.name
     }
 }
