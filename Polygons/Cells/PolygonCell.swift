@@ -8,26 +8,31 @@
 
 import UIKit
 
-class PolygonCell: UICollectionViewCell {
+final class PolygonCell: UICollectionViewCell {
     
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var personAvatarImageView: UIImageView!
     @IBOutlet private var personNameLabel: UILabel!
+    @IBOutlet private var yContentPositionConstraint: NSLayoutConstraint!
     
+    private var moveContent = false
+    private var bgColor: UIColor?
     private var path = UIBezierPath()
-    private let shapeLayer = CAShapeLayer()
+    private var borderLayer = CAShapeLayer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setupView()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        addBorder()
+        moveContentIfNeeded()
+        setupBackgroundColor()
         createPolygonalMask()
+        addBorder()
     }
     
     private func setupView() {
@@ -37,23 +42,39 @@ class PolygonCell: UICollectionViewCell {
         layer.shadowColor = UIColor.black.cgColor
     }
     
-    private func addBorder() {
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = Colors.color4.cgColor
-        shapeLayer.lineWidth = 5
-        layer.addSublayer(shapeLayer)
+    private func moveContentIfNeeded() {
+        let offset = bounds.height * 0.09
+        yContentPositionConstraint.constant = moveContent ? offset : 0
+        layoutIfNeeded()
     }
     
+    private func setupBackgroundColor() {
+        containerView.backgroundColor = bgColor
+    }
+        
     private func createPolygonalMask() {
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         containerView.layer.mask = maskLayer
     }
     
+    private func addBorder() {
+        borderLayer.removeFromSuperlayer()
+        
+        borderLayer = CAShapeLayer()
+        borderLayer.path = path.cgPath
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.strokeColor = Colors.color4.cgColor
+        borderLayer.lineWidth = 5
+        borderLayer.lineJoin = .round
+        borderLayer.lineCap = .round
+        
+        layer.addSublayer(borderLayer)
+    }
+        
     func configure(withData data: CellData) {
-        containerView.backgroundColor = data.backgroundColor
+        moveContent = data.moveContent
+        bgColor = data.backgroundColor
         path = data.path
         personAvatarImageView.image = data.person.avatar
         personNameLabel.text = data.person.name

@@ -10,6 +10,10 @@ import UIKit
 
 final class ListViewModel {
     
+    private enum Constants {
+        static let polygonGroupValue: Int = 5
+    }
+
     private let personsQuantity: Int
     private let cellSize: CGSize
     
@@ -24,7 +28,7 @@ final class ListViewModel {
     
     private func generateData() -> [Person] {
         var persons: [Person] = []
-        for index in 0..<personsQuantity {
+        for index in 1...personsQuantity {
             persons.append(Person(id: index))
         }
         return persons
@@ -35,12 +39,14 @@ final class ListViewModel {
         
         return CellData(path: getPath(forIndex: index),
                         person: person,
-                        backgroundColor: getCellBackgroundColor(forIndex: index))
+                        backgroundColor: getCellBackgroundColor(forIndex: index),
+                        moveContent: index < Constants.polygonGroupValue)
     }
     
     private func getPath(forIndex index: Int) -> UIBezierPath {
-        let path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: cellSize.width, height: cellSize.height))
-        return path
+        let sideNumber = Int(index / Constants.polygonGroupValue) + 3
+        
+        return PolygonPath(sidesNumber: sideNumber, size: cellSize.width)
     }
     
     private func getCellBackgroundColor(forIndex index: Int) -> UIColor {

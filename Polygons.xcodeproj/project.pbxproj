@@ -11,6 +11,7 @@
 		6B05DFB0235757BD00958B80 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05DFAF235757BD00958B80 /* Person.swift */; };
 		6B05DFB223575E5800958B80 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05DFB123575E5800958B80 /* CellData.swift */; };
 		6B05DFB423575F3400958B80 /* Collection+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05DFB323575F3400958B80 /* Collection+extensions.swift */; };
+		6B05DFB723576CFE00958B80 /* PolygonPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05DFB623576CFE00958B80 /* PolygonPath.swift */; };
 		6B1983EB2354BB5F007E2FDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1983EA2354BB5F007E2FDC /* AppDelegate.swift */; };
 		6B1983F22354BB60007E2FDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B1983F12354BB60007E2FDC /* Assets.xcassets */; };
 		6B3BC8F72354EBCA00490A3E /* AddPersonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BC8F62354EBCA00490A3E /* AddPersonButton.swift */; };
@@ -34,6 +35,7 @@
 		6B05DFAF235757BD00958B80 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		6B05DFB123575E5800958B80 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		6B05DFB323575F3400958B80 /* Collection+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+extensions.swift"; sourceTree = "<group>"; };
+		6B05DFB623576CFE00958B80 /* PolygonPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonPath.swift; sourceTree = "<group>"; };
 		6B1983E72354BB5F007E2FDC /* Polygons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polygons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B1983EA2354BB5F007E2FDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B1983F12354BB60007E2FDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B05DFB523576CBD00958B80 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6B05DFB623576CFE00958B80 /* PolygonPath.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		6B1983DE2354BB5E007E2FDC = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 				6B1983EA2354BB5F007E2FDC /* AppDelegate.swift */,
 				6B78F22E2354BEF700401CC9 /* View Controllers */,
 				6B78F2362354BF5100401CC9 /* Models */,
+				6B05DFB523576CBD00958B80 /* Classes */,
 				6B78F23E2354BF5100401CC9 /* Protocols */,
 				6B78F2342354BF5100401CC9 /* Views */,
 				6B78F2352354BF5100401CC9 /* Cells */,
@@ -290,6 +301,7 @@
 				6B05DFB0235757BD00958B80 /* Person.swift in Sources */,
 				6B5A874B23550584007E41F3 /* ListViewController.swift in Sources */,
 				6B78F2412354BF5100401CC9 /* CollectionView+extensions.swift in Sources */,
+				6B05DFB723576CFE00958B80 /* PolygonPath.swift in Sources */,
 				6B78F2402354BF5100401CC9 /* UIView+extensions.swift in Sources */,
 				6B78F2332354BEF700401CC9 /* StartViewController.swift in Sources */,
 				6B05DFAE2357557500958B80 /* ListViewModel.swift in Sources */,

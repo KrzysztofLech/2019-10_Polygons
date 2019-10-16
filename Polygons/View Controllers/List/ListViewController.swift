@@ -11,7 +11,7 @@ import UIKit
 final class ListViewController: UIViewController {
     
     private enum Constants {
-        static let outerPadding: CGFloat = UIScreen.main.bounds.width * 0.25
+        static let outerPadding: CGFloat = UIScreen.main.bounds.width * 0.2
     }
     
     @IBOutlet var collectionView: UICollectionView!
