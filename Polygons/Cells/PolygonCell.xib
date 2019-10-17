@@ -20,6 +20,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVj-bD-I7x">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WB8-PQ-i4v" customClass="GradientView" customModule="Polygons" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                        <color key="value" name="Color1-5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" name="Color1-0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                                        <color key="value" name="Color1-3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tf-Ni-f4i" userLabel="Content View">
                                 <rect key="frame" x="43" y="43" width="114" height="114"/>
                                 <subviews>
@@ -42,7 +57,7 @@
                                             <constraint firstAttribute="height" constant="18" id="skw-bg-TZD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="Color1-0"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -61,9 +76,12 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Color1-1"/>
                         <constraints>
                             <constraint firstItem="8Tf-Ni-f4i" firstAttribute="centerY" secondItem="aVj-bD-I7x" secondAttribute="centerY" multiplier="1:1" id="1Fz-uW-Jbs"/>
+                            <constraint firstAttribute="bottom" secondItem="WB8-PQ-i4v" secondAttribute="bottom" id="6n9-WC-wY6"/>
+                            <constraint firstItem="WB8-PQ-i4v" firstAttribute="leading" secondItem="aVj-bD-I7x" secondAttribute="leading" id="EKe-t8-enp"/>
+                            <constraint firstAttribute="trailing" secondItem="WB8-PQ-i4v" secondAttribute="trailing" id="Kdv-Bm-PNo"/>
+                            <constraint firstItem="WB8-PQ-i4v" firstAttribute="top" secondItem="aVj-bD-I7x" secondAttribute="top" id="TPw-5U-DKB"/>
                             <constraint firstItem="8Tf-Ni-f4i" firstAttribute="width" secondItem="aVj-bD-I7x" secondAttribute="width" multiplier="4:7" id="kUd-Nm-UhW"/>
                             <constraint firstItem="8Tf-Ni-f4i" firstAttribute="centerX" secondItem="aVj-bD-I7x" secondAttribute="centerX" id="oxv-X6-Zo1"/>
                         </constraints>
@@ -77,6 +95,7 @@
                 <constraint firstItem="aVj-bD-I7x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="R96-UB-Be4"/>
             </constraints>
             <connections>
+                <outlet property="bgView" destination="WB8-PQ-i4v" id="shB-ax-T44"/>
                 <outlet property="containerView" destination="aVj-bD-I7x" id="lRj-uw-Xzx"/>
                 <outlet property="personAvatarImageView" destination="ZaK-gJ-LPV" id="SyQ-TV-xRD"/>
                 <outlet property="personNameLabel" destination="nzL-Ba-GCr" id="i0c-Uh-HDr"/>
@@ -87,8 +106,14 @@
     </objects>
     <resources>
         <image name="avatar_m1" width="680" height="680"/>
-        <namedColor name="Color1-1">
-            <color red="0.9137254901960784" green="0.64313725490196083" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Color1-0">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color1-3">
+            <color red="0.72941176470588232" green="0.49019607843137253" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color1-5">
+            <color red="0.18823529411764706" green="0.0039215686274509803" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

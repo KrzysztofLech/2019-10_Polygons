@@ -10,13 +10,13 @@ import UIKit
 
 final class PolygonCell: UICollectionViewCell {
     
+    @IBOutlet private var bgView: GradientView!
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var personAvatarImageView: UIImageView!
     @IBOutlet private var personNameLabel: UILabel!
     @IBOutlet private var yContentPositionConstraint: NSLayoutConstraint!
     
     private var moveContent = false
-    private var bgColor: UIColor?
     private var path = UIBezierPath()
     private var borderLayer = CAShapeLayer()
     
@@ -38,7 +38,7 @@ final class PolygonCell: UICollectionViewCell {
     private func setupView() {
         layer.shadowOffset = .zero
         layer.shadowRadius = 20
-        layer.shadowOpacity = 0.8
+        layer.shadowOpacity = 1.0
         layer.shadowColor = UIColor.black.cgColor
     }
     
@@ -49,7 +49,7 @@ final class PolygonCell: UICollectionViewCell {
     }
     
     private func setupBackgroundColor() {
-        containerView.backgroundColor = bgColor
+        bgView.setNeedsDisplay()
     }
         
     private func createPolygonalMask() {
@@ -64,7 +64,7 @@ final class PolygonCell: UICollectionViewCell {
         borderLayer = CAShapeLayer()
         borderLayer.path = path.cgPath
         borderLayer.fillColor = UIColor.clear.cgColor
-        borderLayer.strokeColor = Colors.color4.cgColor
+        borderLayer.strokeColor = Colors.color1.cgColor
         borderLayer.lineWidth = 5
         borderLayer.lineJoin = .round
         borderLayer.lineCap = .round
@@ -74,7 +74,7 @@ final class PolygonCell: UICollectionViewCell {
         
     func configure(withData data: CellData) {
         moveContent = data.moveContent
-        bgColor = data.backgroundColor
+        bgView.middleColor = data.backgroundColor
         path = data.path
         personAvatarImageView.image = data.person.avatar
         personNameLabel.text = data.person.name

@@ -45,11 +45,25 @@ final class ListViewModel {
     
     private func getPath(forIndex index: Int) -> UIBezierPath {
         let sideNumber = Int(index / Constants.polygonGroupValue) + 3
-        
         return PolygonPath(sidesNumber: sideNumber, size: cellSize.width)
     }
     
     private func getCellBackgroundColor(forIndex index: Int) -> UIColor {
-        return UIColor.white
+        let indexValue = index % Constants.polygonGroupValue + 1
+        
+        switch indexValue {
+        case 1: return UIColor.red
+        case 2: return UIColor.white
+        case 3: return Colors.color1
+        case 4: return UIColor.green
+        case 5: return UIColor.blue
+        default: return UIColor.clear
+        }
+        
+        // version 2: one color shades
+        //
+        // let alphaValue = 0.2 * CGFloat(indexValue)
+        // let color = Colors.color1
+        // return color.withAlphaComponent(alphaValue)
     }
 }
