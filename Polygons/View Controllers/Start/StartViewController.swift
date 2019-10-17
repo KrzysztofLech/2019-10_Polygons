@@ -7,8 +7,14 @@ import UIKit
 
 final class StartViewController: UIViewController {
     
+    @IBOutlet private var backgroundView: AnimatedGradientView!
     @IBOutlet private var personsNumberLabel: UILabel!
     @IBOutlet private var addButtons: [AddPersonButton]!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        backgroundView.startAnimation()
+    }
     
     private var personNumber = 20 {
         didSet {

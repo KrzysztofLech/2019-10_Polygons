@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartViewController" customModule="Polygons" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="QXl-EE-teJ" id="B8C-b5-Vnn"/>
                 <outlet property="personsNumberLabel" destination="Xk1-V7-tI0" id="IBM-4o-c0C"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="addButtons" destination="VQQ-Ph-Xn4" collectionClass="NSMutableArray" id="MgV-zm-SOZ"/>
@@ -23,6 +24,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXl-EE-teJ" customClass="AnimatedGradientView" customModule="Polygons" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="colour1">
+                            <color key="value" name="Color1-9"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="colour2">
+                            <color key="value" name="Color1-5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select number of persons" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNd-EM-ewP" userLabel="Title Label">
                     <rect key="frame" x="50" y="282.33333333333331" width="275" height="31.666666666666686"/>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="23"/>
@@ -146,9 +159,13 @@
                 <constraint firstItem="VQQ-Ph-Xn4" firstAttribute="centerY" secondItem="Xe6-qO-tX5" secondAttribute="centerY" id="Gtx-Lr-Rq9"/>
                 <constraint firstItem="Xe6-qO-tX5" firstAttribute="leading" secondItem="VQQ-Ph-Xn4" secondAttribute="trailing" constant="30" id="Hqv-NR-yze"/>
                 <constraint firstItem="HL0-nX-SBG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KTM-iT-oKX"/>
+                <constraint firstItem="QXl-EE-teJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OF9-ub-hIo"/>
                 <constraint firstItem="Xk1-V7-tI0" firstAttribute="top" secondItem="SNd-EM-ewP" secondAttribute="bottom" constant="8" id="WCl-1f-odV"/>
+                <constraint firstItem="QXl-EE-teJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xs3-dc-W5Y"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SNd-EM-ewP" secondAttribute="trailing" constant="50" id="Xx8-Tt-VQT"/>
                 <constraint firstItem="Xe6-qO-tX5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bvb-pz-jm2"/>
+                <constraint firstAttribute="bottom" secondItem="QXl-EE-teJ" secondAttribute="bottom" id="emh-nz-fpp"/>
+                <constraint firstAttribute="trailing" secondItem="QXl-EE-teJ" secondAttribute="trailing" id="fF9-tG-Cwv"/>
                 <constraint firstItem="geD-Lw-1MW" firstAttribute="centerX" secondItem="Xe6-qO-tX5" secondAttribute="centerX" id="iSt-SJ-YRn"/>
                 <constraint firstItem="geD-Lw-1MW" firstAttribute="top" secondItem="Xe6-qO-tX5" secondAttribute="bottom" constant="30" id="mhF-Af-h75"/>
                 <constraint firstAttribute="bottom" secondItem="HL0-nX-SBG" secondAttribute="bottom" constant="80" id="o8b-eA-Pg6"/>
@@ -173,6 +190,9 @@
         </namedColor>
         <namedColor name="Color1-5">
             <color red="0.18823529411764706" green="0.0039215686274509803" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color1-9">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

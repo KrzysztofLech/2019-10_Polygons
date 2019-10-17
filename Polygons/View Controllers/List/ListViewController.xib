@@ -20,6 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoZ-kA-WMH" customClass="AnimatedGradientView" customModule="Polygons" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="colour1">
+                            <color key="value" name="Color1-4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="colour2">
+                            <color key="value" name="Color1-9"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NmJ-RY-gtU">
                     <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,14 +96,18 @@
             <color key="backgroundColor" name="Color1-5"/>
             <constraints>
                 <constraint firstItem="NmJ-RY-gtU" firstAttribute="top" secondItem="WFc-lq-z3G" secondAttribute="bottom" id="1u8-l7-dkA"/>
+                <constraint firstItem="OoZ-kA-WMH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="54N-lY-XhB"/>
                 <constraint firstItem="WFc-lq-z3G" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6Cu-xX-rSm"/>
                 <constraint firstAttribute="bottom" secondItem="NmJ-RY-gtU" secondAttribute="bottom" id="7Ye-Ke-Y3X"/>
                 <constraint firstItem="NmJ-RY-gtU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AKI-Ym-CyD"/>
+                <constraint firstAttribute="bottom" secondItem="OoZ-kA-WMH" secondAttribute="bottom" id="DUy-t2-fRv"/>
                 <constraint firstItem="WaS-WL-DRM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c3u-4u-xIH"/>
                 <constraint firstItem="WFc-lq-z3G" firstAttribute="bottom" secondItem="WaS-WL-DRM" secondAttribute="bottom" id="cOa-8D-MM8"/>
                 <constraint firstAttribute="trailing" secondItem="NmJ-RY-gtU" secondAttribute="trailing" id="dg1-e1-5W8"/>
                 <constraint firstItem="WFc-lq-z3G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gjI-wQ-HWp"/>
                 <constraint firstAttribute="trailing" secondItem="WFc-lq-z3G" secondAttribute="trailing" id="nPb-KI-aNg"/>
+                <constraint firstAttribute="trailing" secondItem="OoZ-kA-WMH" secondAttribute="trailing" id="poH-JR-IMy"/>
+                <constraint firstItem="OoZ-kA-WMH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qEg-Ta-RCx"/>
                 <constraint firstItem="WaS-WL-DRM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="sVB-q7-jG2"/>
                 <constraint firstAttribute="trailing" secondItem="WaS-WL-DRM" secondAttribute="trailing" id="vmH-o5-aqL"/>
             </constraints>
@@ -109,6 +125,9 @@
         </namedColor>
         <namedColor name="Color1-5">
             <color red="0.18823529411764706" green="0.0039215686274509803" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color1-9">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
