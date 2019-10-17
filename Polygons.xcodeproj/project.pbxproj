@@ -72,6 +72,7 @@
 		6B05DFB523576CBD00958B80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6B3BC8F62354EBCA00490A3E /* AddPersonButton.swift */,
 				6B05DFB623576CFE00958B80 /* PolygonPath.swift */,
 				6B4F73AE2358DA630056B66B /* GradientView.swift */,
 			);
@@ -101,23 +102,14 @@
 				6B1983EA2354BB5F007E2FDC /* AppDelegate.swift */,
 				6B78F22E2354BEF700401CC9 /* View Controllers */,
 				6B78F2362354BF5100401CC9 /* Models */,
+				6B78F2352354BF5100401CC9 /* Cells */,
 				6B05DFB523576CBD00958B80 /* Classes */,
 				6B78F23E2354BF5100401CC9 /* Protocols */,
-				6B78F2342354BF5100401CC9 /* Views */,
-				6B78F2352354BF5100401CC9 /* Cells */,
 				6B78F23D2354BF5100401CC9 /* Services */,
 				6B78F2372354BF5100401CC9 /* Helpers */,
 				6B78F2432354BF5B00401CC9 /* Other */,
 			);
 			path = Polygons;
-			sourceTree = "<group>";
-		};
-		6B3BC8F52354EB2700490A3E /* UIKit Objects */ = {
-			isa = PBXGroup;
-			children = (
-				6B3BC8F62354EBCA00490A3E /* AddPersonButton.swift */,
-			);
-			path = "UIKit Objects";
 			sourceTree = "<group>";
 		};
 		6B5A87482355056B007E41F3 /* List */ = {
@@ -148,13 +140,6 @@
 			path = Start;
 			sourceTree = "<group>";
 		};
-		6B78F2342354BF5100401CC9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		6B78F2352354BF5100401CC9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				6B78F2382354BF5100401CC9 /* Extensions */,
-				6B3BC8F52354EB2700490A3E /* UIKit Objects */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

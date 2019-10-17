@@ -10,6 +10,10 @@ import UIKit
 
 final class PolygonCell: UICollectionViewCell {
     
+    private enum Constants {
+        static let borderWidth: CGFloat = 6
+    }
+    
     @IBOutlet private var bgView: GradientView!
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var personAvatarImageView: UIImageView!
@@ -65,7 +69,7 @@ final class PolygonCell: UICollectionViewCell {
         borderLayer.path = path.cgPath
         borderLayer.fillColor = UIColor.clear.cgColor
         borderLayer.strokeColor = Colors.color1.cgColor
-        borderLayer.lineWidth = 5
+        borderLayer.lineWidth = Constants.borderWidth
         borderLayer.lineJoin = .round
         borderLayer.lineCap = .round
         
