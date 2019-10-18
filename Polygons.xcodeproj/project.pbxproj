@@ -19,6 +19,8 @@
 		6B4F73B12358DFB10056B66B /* AnimatedGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F73B02358DFB10056B66B /* AnimatedGradientView.swift */; };
 		6B5A874B23550584007E41F3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5A874923550584007E41F3 /* ListViewController.swift */; };
 		6B5A874C23550584007E41F3 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B5A874A23550584007E41F3 /* ListViewController.xib */; };
+		6B765CB5235A10070012C067 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B765CB3235A10070012C067 /* DetailsViewController.swift */; };
+		6B765CB6235A10070012C067 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B765CB4235A10070012C067 /* DetailsViewController.xib */; };
 		6B78F2322354BEF700401CC9 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B78F2302354BEF700401CC9 /* StartViewController.xib */; };
 		6B78F2332354BEF700401CC9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78F2312354BEF700401CC9 /* StartViewController.swift */; };
 		6B78F23F2354BF5100401CC9 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78F2392354BF5100401CC9 /* UIViewController+extensions.swift */; };
@@ -48,6 +50,8 @@
 		6B4F73B02358DFB10056B66B /* AnimatedGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGradientView.swift; sourceTree = "<group>"; };
 		6B5A874923550584007E41F3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6B5A874A23550584007E41F3 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		6B765CB3235A10070012C067 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		6B765CB4235A10070012C067 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		6B78F2302354BEF700401CC9 /* StartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
 		6B78F2312354BEF700401CC9 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		6B78F2392354BF5100401CC9 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
@@ -126,11 +130,21 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		6B765CB2235A0FD20012C067 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				6B765CB4235A10070012C067 /* DetailsViewController.xib */,
+				6B765CB3235A10070012C067 /* DetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		6B78F22E2354BEF700401CC9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				6B78F22F2354BEF700401CC9 /* Start */,
 				6B5A87482355056B007E41F3 /* List */,
+				6B765CB2235A0FD20012C067 /* Details */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -243,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B765CB6235A10070012C067 /* DetailsViewController.xib in Resources */,
 				6B78F2452354BFD200401CC9 /* LaunchScreen.storyboard in Resources */,
 				6B78F2472354CA5A00401CC9 /* Colors.xcassets in Resources */,
 				6BDF526F235633B90088DA32 /* PolygonCell.xib in Resources */,
@@ -272,6 +287,7 @@
 				6B3BC8F72354EBCA00490A3E /* AddPersonButton.swift in Sources */,
 				6B05DFB0235757BD00958B80 /* Person.swift in Sources */,
 				6B5A874B23550584007E41F3 /* ListViewController.swift in Sources */,
+				6B765CB5235A10070012C067 /* DetailsViewController.swift in Sources */,
 				6B78F2412354BF5100401CC9 /* CollectionView+extensions.swift in Sources */,
 				6B05DFB723576CFE00958B80 /* PolygonPath.swift in Sources */,
 				6B78F2402354BF5100401CC9 /* UIView+extensions.swift in Sources */,

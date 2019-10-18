@@ -91,3 +91,13 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
         return Constants.outerPadding
     }
 }
+
+extension ListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cellData = viewModel.getCellData(forIndex: indexPath.item) else { return }
+        let detailsViewController = DetailsViewController(cellData: cellData)
+        detailsViewController.modalPresentationStyle = .fullScreen  /// wykasować po dodaniu custom transition
+        detailsViewController.modalTransitionStyle = .crossDissolve  /// wykasować po dodaniu custom transition
+        present(detailsViewController, animated: true)
+    }
+}
