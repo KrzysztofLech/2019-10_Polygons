@@ -9,25 +9,11 @@
 import UIKit
 
 @IBDesignable
-final class AddPersonButton: UIButton {
+final class AddPersonButton: RippleButton {
         
     @IBInspectable var value: Int = 0 {
         didSet {
             setTitle("+\(value)", for: .normal)
         }
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        setup()
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setup()
-    }
-    
-    private func setup() {
-        layer.cornerRadius = 8
-        layer.masksToBounds = true
     }
 }

@@ -30,6 +30,7 @@
 		6B78F2492354CD1B00401CC9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78F2482354CD1B00401CC9 /* Colors.swift */; };
 		6BDF526E235633B90088DA32 /* PolygonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDF526C235633B90088DA32 /* PolygonCell.swift */; };
 		6BDF526F235633B90088DA32 /* PolygonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BDF526D235633B90088DA32 /* PolygonCell.xib */; };
+		6BEAD77A235987DB00E91DF5 /* RippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAD779235987DB00E91DF5 /* RippleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		6B78F2482354CD1B00401CC9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		6BDF526C235633B90088DA32 /* PolygonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonCell.swift; sourceTree = "<group>"; };
 		6BDF526D235633B90088DA32 /* PolygonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PolygonCell.xib; sourceTree = "<group>"; };
+		6BEAD779235987DB00E91DF5 /* RippleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +77,10 @@
 			isa = PBXGroup;
 			children = (
 				6B3BC8F62354EBCA00490A3E /* AddPersonButton.swift */,
-				6B05DFB623576CFE00958B80 /* PolygonPath.swift */,
+				6BEAD779235987DB00E91DF5 /* RippleButton.swift */,
 				6B4F73AE2358DA630056B66B /* GradientView.swift */,
 				6B4F73B02358DFB10056B66B /* AnimatedGradientView.swift */,
+				6B05DFB623576CFE00958B80 /* PolygonPath.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -107,9 +110,7 @@
 				6B78F2362354BF5100401CC9 /* Models */,
 				6B78F2352354BF5100401CC9 /* Cells */,
 				6B05DFB523576CBD00958B80 /* Classes */,
-				6B78F23E2354BF5100401CC9 /* Protocols */,
-				6B78F23D2354BF5100401CC9 /* Services */,
-				6B78F2372354BF5100401CC9 /* Helpers */,
+				6B78F2382354BF5100401CC9 /* Extensions */,
 				6B78F2432354BF5B00401CC9 /* Other */,
 			);
 			path = Polygons;
@@ -161,14 +162,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6B78F2372354BF5100401CC9 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				6B78F2382354BF5100401CC9 /* Extensions */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		6B78F2382354BF5100401CC9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,20 +172,6 @@
 				6B05DFB323575F3400958B80 /* Collection+extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		6B78F23D2354BF5100401CC9 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		6B78F23E2354BF5100401CC9 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		6B78F2432354BF5B00401CC9 /* Other */ = {
@@ -289,6 +268,7 @@
 				6B78F23F2354BF5100401CC9 /* UIViewController+extensions.swift in Sources */,
 				6B4F73AF2358DA630056B66B /* GradientView.swift in Sources */,
 				6B78F2492354CD1B00401CC9 /* Colors.swift in Sources */,
+				6BEAD77A235987DB00E91DF5 /* RippleButton.swift in Sources */,
 				6B3BC8F72354EBCA00490A3E /* AddPersonButton.swift in Sources */,
 				6B05DFB0235757BD00958B80 /* Person.swift in Sources */,
 				6B5A874B23550584007E41F3 /* ListViewController.swift in Sources */,

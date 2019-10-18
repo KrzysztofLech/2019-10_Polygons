@@ -63,6 +63,9 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="value">
                             <integer key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="addButtonAction:" destination="-1" eventType="touchUpInside" id="cZa-FE-UFE"/>
@@ -82,6 +85,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="value">
                             <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -103,12 +109,15 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="value">
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="addButtonAction:" destination="-1" eventType="touchUpInside" id="cib-WO-hOK"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geD-Lw-1MW" userLabel="Reset Button">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geD-Lw-1MW" userLabel="Reset Button" customClass="RippleButton" customModule="Polygons" customModuleProvider="target">
                     <rect key="frame" x="157.66666666666666" y="502" width="60" height="30"/>
                     <color key="backgroundColor" name="Color1-3"/>
                     <constraints>
@@ -121,14 +130,14 @@
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <integer key="value" value="15"/>
+                            <real key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="clearButtonAction" destination="-1" eventType="touchUpInside" id="PhD-TR-kEe"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HL0-nX-SBG" userLabel="OK Button">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HL0-nX-SBG" userLabel="OK Button" customClass="RippleButton" customModule="Polygons" customModuleProvider="target">
                     <rect key="frame" x="127.66666666666669" y="612" width="120" height="120"/>
                     <color key="backgroundColor" name="Color1-4"/>
                     <constraints>
