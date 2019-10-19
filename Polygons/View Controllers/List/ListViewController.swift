@@ -49,7 +49,7 @@ final class ListViewController: UIViewController {
     // MARK: - Setup methods
     
     private func setupCollectionView() {
-        collectionView.register(cellAndNibName: PolygonCell.toString())
+        collectionView.register(cellAndNibName: PersonCell.toString())
     }
     
     // MARK: - Other
@@ -68,7 +68,7 @@ extension ListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PolygonCell.toString(), for: indexPath) as? PolygonCell,
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonCell.toString(), for: indexPath) as? PersonCell,
             let cellData = viewModel.getCellData(forIndex: indexPath.item)
             else { return UICollectionViewCell() }
         

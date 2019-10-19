@@ -37,15 +37,16 @@ final class ListViewModel {
     func getCellData(forIndex index: Int) -> CellData? {
         guard let person = persons[safe: index] else { return nil }
         
-        return CellData(path: getPath(forIndex: index),
+        let sidesNumber = Int(index / Constants.polygonGroupValue) + 3
+        return CellData(path: getPath(forSidesNumber: sidesNumber),
                         person: person,
                         backgroundColor: getCellBackgroundColor(forIndex: index),
-                        moveContent: index < Constants.polygonGroupValue)
+                        moveContent: index < Constants.polygonGroupValue,
+                        sides: sidesNumber)
     }
     
-    private func getPath(forIndex index: Int) -> UIBezierPath {
-        let sideNumber = Int(index / Constants.polygonGroupValue) + 3
-        return PolygonPath(sidesNumber: sideNumber, size: cellSize.width)
+    private func getPath(forSidesNumber sides: Int) -> UIBezierPath {
+        return PolygonPath(sidesNumber: sides, size: cellSize.width)
     }
     
     private func getCellBackgroundColor(forIndex index: Int) -> UIColor {

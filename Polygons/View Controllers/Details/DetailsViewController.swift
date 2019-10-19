@@ -10,18 +10,42 @@ import UIKit
 
 final class DetailsViewController: UIViewController {
     
-    @IBOutlet var buttonsView: UIView!
-    @IBOutlet var contentView: UIView!
+    private enum Constants {
+        static let padding: CGFloat = 20
+    }
     
-    private let data: CellData
+    @IBOutlet var buttonsView: UIView!
+    @IBOutlet var personView: PersonView!
+    
+    @IBOutlet private var personViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private var personViewTrailingConstraint: NSLayoutConstraint!
+    
+    private var data: CellData
     
     init(cellData: CellData) {
         data = cellData
         super.init(nibName: nil, bundle: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupPersonView()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupPersonView() {
+        personViewLeadingConstraint.constant = Constants.padding
+        personViewTrailingConstraint.constant = Constants.padding
+        personView.layoutIfNeeded()
+        
+        let size = UIScreen.main.bounds.width - Constants.padding * 2
+        data.path = PolygonPath(sidesNumber: data.sides, size: size)
+
+        personView.configure(withData: data)
     }
     
     @IBAction func backButtonAction() {

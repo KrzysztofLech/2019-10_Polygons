@@ -75,11 +75,11 @@ final class DetailsTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let alphaValue: CGFloat = isPresenting ? 1.0 : 0.0
         
         detailsViewController?.buttonsView.alpha = isPresenting ? 0.0 : 1.0
-        detailsViewController?.contentView.alpha = isPresenting ? 0.0 : 1.0
+        detailsViewController?.personView.alpha = isPresenting ? 0.0 : 1.0
         
         UIView.animate(withDuration: totalTransitionDuration / 2, animations: {
             self.detailsViewController?.buttonsView.alpha = alphaValue
-            self.detailsViewController?.contentView.alpha = alphaValue
+            self.detailsViewController?.personView.alpha = alphaValue
          }) {_ in
             if !self.isPresenting {
                 self.transitionContext?.containerView.addSubview(listViewController.view)

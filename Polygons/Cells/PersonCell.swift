@@ -1,5 +1,5 @@
 //
-//  PolygonCell.swift
+//  PersonCell.swift
 //  Polygons
 //
 //  Created by Krzysztof Lech on 15/10/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PolygonCell: UICollectionViewCell {
+final class PersonCell: UICollectionViewCell {
     
     private enum Constants {
         static let borderWidth: CGFloat = 6

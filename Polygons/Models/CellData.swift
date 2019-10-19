@@ -9,8 +9,9 @@
 import UIKit
 
 struct CellData {
-    let path: UIBezierPath
+    var path: UIBezierPath
     let person: Person
     let backgroundColor: UIColor
     let moveContent: Bool
+    let sides: Int
 }

@@ -30,10 +30,11 @@
 		6B78F2452354BFD200401CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B78F2442354BFD200401CC9 /* LaunchScreen.storyboard */; };
 		6B78F2472354CA5A00401CC9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B78F2462354CA5A00401CC9 /* Colors.xcassets */; };
 		6B78F2492354CD1B00401CC9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78F2482354CD1B00401CC9 /* Colors.swift */; };
-		6BDF526E235633B90088DA32 /* PolygonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDF526C235633B90088DA32 /* PolygonCell.swift */; };
-		6BDF526F235633B90088DA32 /* PolygonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BDF526D235633B90088DA32 /* PolygonCell.xib */; };
+		6BDF526E235633B90088DA32 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDF526C235633B90088DA32 /* PersonCell.swift */; };
+		6BDF526F235633B90088DA32 /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BDF526D235633B90088DA32 /* PersonCell.xib */; };
 		6BEAD77A235987DB00E91DF5 /* RippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAD779235987DB00E91DF5 /* RippleButton.swift */; };
 		6BF697C7235A153600372002 /* DetailsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF697C6235A153600372002 /* DetailsTransition.swift */; };
+		6BF697C9235B42C900372002 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF697C8235B42C900372002 /* PersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,10 +63,11 @@
 		6B78F2442354BFD200401CC9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B78F2462354CA5A00401CC9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6B78F2482354CD1B00401CC9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		6BDF526C235633B90088DA32 /* PolygonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonCell.swift; sourceTree = "<group>"; };
-		6BDF526D235633B90088DA32 /* PolygonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PolygonCell.xib; sourceTree = "<group>"; };
+		6BDF526C235633B90088DA32 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		6BDF526D235633B90088DA32 /* PersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
 		6BEAD779235987DB00E91DF5 /* RippleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleButton.swift; sourceTree = "<group>"; };
 		6BF697C6235A153600372002 /* DetailsTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTransition.swift; sourceTree = "<group>"; };
+		6BF697C8235B42C900372002 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				6B4F73AE2358DA630056B66B /* GradientView.swift */,
 				6B4F73B02358DFB10056B66B /* AnimatedGradientView.swift */,
 				6B05DFB623576CFE00958B80 /* PolygonPath.swift */,
+				6BF697C8235B42C900372002 /* PersonView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -164,8 +167,8 @@
 		6B78F2352354BF5100401CC9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				6BDF526C235633B90088DA32 /* PolygonCell.swift */,
-				6BDF526D235633B90088DA32 /* PolygonCell.xib */,
+				6BDF526C235633B90088DA32 /* PersonCell.swift */,
+				6BDF526D235633B90088DA32 /* PersonCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -263,7 +266,7 @@
 				6B765CB6235A10070012C067 /* DetailsViewController.xib in Resources */,
 				6B78F2452354BFD200401CC9 /* LaunchScreen.storyboard in Resources */,
 				6B78F2472354CA5A00401CC9 /* Colors.xcassets in Resources */,
-				6BDF526F235633B90088DA32 /* PolygonCell.xib in Resources */,
+				6BDF526F235633B90088DA32 /* PersonCell.xib in Resources */,
 				6B5A874C23550584007E41F3 /* ListViewController.xib in Resources */,
 				6B1983F22354BB60007E2FDC /* Assets.xcassets in Resources */,
 				6B78F2322354BEF700401CC9 /* StartViewController.xib in Resources */,
@@ -277,12 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BDF526E235633B90088DA32 /* PolygonCell.swift in Sources */,
+				6BDF526E235633B90088DA32 /* PersonCell.swift in Sources */,
 				6B05DFB423575F3400958B80 /* Collection+extensions.swift in Sources */,
 				6B4F73B12358DFB10056B66B /* AnimatedGradientView.swift in Sources */,
 				6B1983EB2354BB5F007E2FDC /* AppDelegate.swift in Sources */,
 				6B05DFB223575E5800958B80 /* CellData.swift in Sources */,
 				6B78F2422354BF5100401CC9 /* UITableView+extensions.swift in Sources */,
+				6BF697C9235B42C900372002 /* PersonView.swift in Sources */,
 				6B78F23F2354BF5100401CC9 /* UIViewController+extensions.swift in Sources */,
 				6BF697C7235A153600372002 /* DetailsTransition.swift in Sources */,
 				6B4F73AF2358DA630056B66B /* GradientView.swift in Sources */,
