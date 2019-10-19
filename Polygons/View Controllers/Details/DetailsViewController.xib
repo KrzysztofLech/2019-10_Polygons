@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="Polygons" customModuleProvider="target">
             <connections>
+                <outlet property="buttonsView" destination="NFR-lc-02Y" id="qQb-UJ-4ap"/>
+                <outlet property="contentView" destination="2vb-XX-RX2" id="hSM-7G-0sQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,27 +33,50 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmx-3A-dRP" userLabel="Back Button">
-                    <rect key="frame" x="0.0" y="44" width="44" height="44"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vb-XX-RX2" userLabel="Content View">
+                    <rect key="frame" x="20" y="261" width="374" height="374"/>
+                    <color key="backgroundColor" name="Color1-1"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="B1b-z9-jNd"/>
-                        <constraint firstAttribute="width" constant="44" id="tcd-bZ-7tw"/>
+                        <constraint firstAttribute="width" secondItem="2vb-XX-RX2" secondAttribute="height" multiplier="1:1" id="Zt9-cq-3Md"/>
                     </constraints>
-                    <color key="tintColor" name="Color1-3"/>
-                    <state key="normal" image="back_icon"/>
-                    <connections>
-                        <action selector="backButtonAction" destination="-1" eventType="touchUpInside" id="fmM-qE-KPg"/>
-                    </connections>
-                </button>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-lc-02Y" userLabel="Buttons View">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmx-3A-dRP" userLabel="Back Button">
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="tcd-bZ-7tw"/>
+                            </constraints>
+                            <color key="tintColor" name="Color1-3"/>
+                            <state key="normal" image="back_icon"/>
+                            <connections>
+                                <action selector="backButtonAction" destination="-1" eventType="touchUpInside" id="fmM-qE-KPg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="lmx-3A-dRP" secondAttribute="bottom" id="36M-Ys-HUf"/>
+                        <constraint firstItem="lmx-3A-dRP" firstAttribute="leading" secondItem="NFR-lc-02Y" secondAttribute="leading" id="EPN-9y-uzd"/>
+                        <constraint firstItem="lmx-3A-dRP" firstAttribute="top" secondItem="NFR-lc-02Y" secondAttribute="top" id="mDY-Cu-Jqe"/>
+                        <constraint firstAttribute="height" constant="44" id="wf8-RG-BcP"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="Color1-5"/>
             <constraints>
-                <constraint firstItem="lmx-3A-dRP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2f6-DX-Dsh"/>
-                <constraint firstItem="lmx-3A-dRP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5ld-jz-1sA"/>
                 <constraint firstAttribute="bottom" secondItem="8rA-4h-BdT" secondAttribute="bottom" id="9rz-1b-uou"/>
                 <constraint firstItem="8rA-4h-BdT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9tI-DZ-bT2"/>
+                <constraint firstItem="2vb-XX-RX2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="JV8-6e-2Z8"/>
+                <constraint firstItem="2vb-XX-RX2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Sj6-d5-G45"/>
+                <constraint firstItem="2vb-XX-RX2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WDQ-Vk-BeX"/>
                 <constraint firstItem="8rA-4h-BdT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cXa-ln-QV8"/>
+                <constraint firstAttribute="trailing" secondItem="NFR-lc-02Y" secondAttribute="trailing" id="eBC-EJ-cJa"/>
                 <constraint firstAttribute="trailing" secondItem="8rA-4h-BdT" secondAttribute="trailing" id="k8g-NF-4tu"/>
+                <constraint firstItem="NFR-lc-02Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="weD-6C-edF"/>
+                <constraint firstAttribute="trailing" secondItem="2vb-XX-RX2" secondAttribute="trailing" constant="20" id="xde-Ug-00r"/>
+                <constraint firstItem="NFR-lc-02Y" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yFA-64-Bcm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="133" y="154"/>
@@ -59,11 +84,17 @@
     </objects>
     <resources>
         <image name="back_icon" width="12" height="22"/>
+        <namedColor name="Color1-1">
+            <color red="0.9137254901960784" green="0.64313725490196083" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Color1-3">
             <color red="0.72941176470588232" green="0.49019607843137253" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color1-4">
             <color red="0.40784313725490196" green="0.031372549019607843" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color1-5">
+            <color red="0.18823529411764706" green="0.0039215686274509803" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color1-9">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

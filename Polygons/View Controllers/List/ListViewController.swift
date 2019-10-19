@@ -14,11 +14,13 @@ final class ListViewController: UIViewController {
         static let outerPadding: CGFloat = UIScreen.main.bounds.width * 0.2
     }
     
+    @IBOutlet var topView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
     private let personNumber: Int
     private let cellSize: CGSize
     private let viewModel: ListViewModel
+    private let detailsTransition = DetailsTransition()
     
     // MARK: - init methods
     
@@ -96,8 +98,7 @@ extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cellData = viewModel.getCellData(forIndex: indexPath.item) else { return }
         let detailsViewController = DetailsViewController(cellData: cellData)
-        detailsViewController.modalPresentationStyle = .fullScreen  /// wykasować po dodaniu custom transition
-        detailsViewController.modalTransitionStyle = .crossDissolve  /// wykasować po dodaniu custom transition
+        detailsViewController.transitioningDelegate = detailsTransition
         present(detailsViewController, animated: true)
     }
 }
