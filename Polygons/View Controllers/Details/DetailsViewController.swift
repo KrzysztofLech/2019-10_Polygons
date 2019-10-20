@@ -83,6 +83,18 @@ final class DetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func panGestureAction(_ sender: UIPanGestureRecognizer) {
+        guard sender.state == .ended else { return }
+        
+        let translation = sender.translation(in: view)
+        
+        if translation.y > 50 {
+            changeStyle()
+        } else if translation.y < -50 {
+            // TODO:
+        }
+    }
+    
     @IBAction func changeStyleButtonAction() {
         changeStyle()
     }

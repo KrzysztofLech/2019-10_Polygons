@@ -173,6 +173,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" name="Color1-5"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="8rA-4h-BdT" secondAttribute="bottom" id="9rz-1b-uou"/>
                 <constraint firstItem="8rA-4h-BdT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9tI-DZ-bT2"/>
@@ -187,8 +188,16 @@
                 <constraint firstItem="NFR-lc-02Y" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yFA-64-Bcm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="BBb-KI-SUO" appends="YES" id="l22-eL-wfv"/>
+            </connections>
             <point key="canvasLocation" x="133" y="154"/>
         </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="BBb-KI-SUO">
+            <connections>
+                <action selector="panGestureAction:" destination="-1" id="Rcx-Z3-Nfj"/>
+            </connections>
+        </panGestureRecognizer>
     </objects>
     <resources>
         <image name="avatar_m1" width="680" height="680"/>
