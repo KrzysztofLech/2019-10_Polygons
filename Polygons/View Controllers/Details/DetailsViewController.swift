@@ -12,6 +12,8 @@ final class DetailsViewController: UIViewController {
     
     private enum Constants {
         static let padding: CGFloat = 20
+        static let changeStyleAnimationDuration = 2.0
+        static let onExitChangeStyleAnimationDuration = 0.5
     }
     
     @IBOutlet var buttonsView: UIView!
@@ -32,6 +34,7 @@ final class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         setupPersonView()
+        createColorStyles()
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +53,16 @@ final class DetailsViewController: UIViewController {
     }
     
     @IBAction func backButtonAction() {
-        dismiss(animated: true)
+        guard isStyleModified else {
+            dismiss(animated: true)
+            return
+        }
+        
+        isDismising = true
+        changeStyle()
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.onExitChangeStyleAnimationDuration) { [weak self] in
+            self?.dismiss(animated: true)
+        }
     }
     
     //MARK: - Change style methods -
@@ -61,38 +73,55 @@ final class DetailsViewController: UIViewController {
     
     private var snapshot: UIImage?
     private var snapshotImageView = UIImageView()
-    private var colorStyles = DetailsStyles()
+    private var colorStyles = ColorStyles()
+    private var currentStyle = ColorStyle()
+    private var isStyleModified = false
+    private var isDismising = false
     
     @IBAction func changeStyleButtonAction() {
-        createColorStyles()
+        changeStyle()
+    }
+    
+    private func changeStyle() {
+        changeCurrentStyle()
         makeSnapshot()
         showSnapshot()
-        changeColorStyle(colorStyles.modified)
+        setSelectedStyle()
         showMask()
     }
     
     private func createColorStyles() {
-        colorStyles.initial.backgroundViewColor1 = backgroundView.colour1
-        colorStyles.initial.backgroundViewColor2 = backgroundView.colour2
-        colorStyles.initial.personViewBackgroundColor = data.backgroundColor
-        colorStyles.initial.personViewBorderColor = personView.borderColor
+        colorStyles.initial = ColorStyle(backgroundViewColor1: backgroundView.colour1,
+                                         backgroundViewColor2: backgroundView.colour2,
+                                         personViewBackgroundColor: data.backgroundColor,
+                                         personViewBorderColor: personView.borderColor)
+        
+        colorStyles.modified = ColorStyle(backgroundViewColor1: Colors.color4,
+                                          backgroundViewColor2: Colors.color2,
+                                          personViewBackgroundColor: Colors.color4,
+                                          personViewBorderColor: Colors.color5)
     }
     
-    private func changeColorStyle(_ style: ColorStyle) {
-        backgroundView.colour1 = style.backgroundViewColor1
-        backgroundView.colour2 = style.backgroundViewColor2
+    private func setSelectedStyle() {
+        backgroundView.colour1 = currentStyle.backgroundViewColor1
+        backgroundView.colour2 = currentStyle.backgroundViewColor2
         backgroundView.refreshGradient()
         
         let newStyleData = CellData(path: data.path,
                                     person: data.person,
-                                    backgroundColor: style.personViewBackgroundColor,
+                                    backgroundColor: currentStyle.personViewBackgroundColor,
                                     moveContent: data.moveContent,
                                     sides: data.sides)
         personView.configure(withData: newStyleData)
         personView.setupBackgroundColor()
         
-        personView.borderColor = style.personViewBorderColor
+        personView.borderColor = currentStyle.personViewBorderColor
         personView.addBorder()
+    }
+    
+    private func changeCurrentStyle() {
+        currentStyle = isStyleModified ? colorStyles.initial : colorStyles.modified
+        isStyleModified.toggle()
     }
     
     private func makeSnapshot() {
@@ -119,9 +148,10 @@ final class DetailsViewController: UIViewController {
         snapshotImageView.layer.mask = maskLayer
         
         let animation = CABasicAnimation(keyPath: "path")
-        animation.duration = 2.0
+        animation.duration = isDismising ? Constants.onExitChangeStyleAnimationDuration : Constants.changeStyleAnimationDuration
         animation.fromValue = startPath
         animation.toValue = endPath
+        animation.delegate = self
         
         maskLayer.add(animation, forKey: nil)
         maskLayer.path = endPath
@@ -140,7 +170,13 @@ final class DetailsViewController: UIViewController {
     }
 }
 
+extension DetailsViewController: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        snapshotImageView.removeFromSuperview()
+    }
+}
 
+//MARK: - Color Style structs -
 
 struct ColorStyle {
     var backgroundViewColor1 = UIColor.white
@@ -149,10 +185,7 @@ struct ColorStyle {
     var personViewBorderColor = UIColor.white
 }
 
-struct DetailsStyles {
+struct ColorStyles {
     var initial = ColorStyle()
-    let modified = ColorStyle(backgroundViewColor1: Colors.color4,
-                              backgroundViewColor2: Colors.color2,
-                              personViewBackgroundColor: Colors.color4,
-                              personViewBorderColor: Colors.color5)
+    var modified = ColorStyle()
 }
