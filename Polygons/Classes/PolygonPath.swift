@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PolygonPath: UIBezierPath {
+final class PolygonPath: UIBezierPath {
     
     private let sidesNumber: Int
     private let size: CGFloat

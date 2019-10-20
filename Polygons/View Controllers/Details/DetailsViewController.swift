@@ -77,12 +77,19 @@ final class DetailsViewController: UIViewController {
     private var currentStyle = ColorStyle()
     private var isStyleModified = false
     private var isDismising = false
+    private var isAnimating = false {
+        didSet {
+            buttonsView.isHidden = isAnimating
+        }
+    }
     
     @IBAction func changeStyleButtonAction() {
         changeStyle()
     }
     
     private func changeStyle() {
+        isAnimating = true
+        
         changeCurrentStyle()
         makeSnapshot()
         showSnapshot()
@@ -159,13 +166,8 @@ final class DetailsViewController: UIViewController {
         
     private func getPath(forMaskType maskType: MaskType) -> CGPath {
         switch maskType {
-        case .start:
-            return UIBezierPath(rect: view.bounds).cgPath
-
-        case .end:
-            let frame = view.bounds.inset(by: UIEdgeInsets(top: view.bounds.height,
-                                                           left: 0, bottom: 0, right: 0))
-            return UIBezierPath(rect: frame).cgPath
+        case .start: return WavePath(phase: .start).cgPath
+        case .end: return WavePath(phase: .end).cgPath
         }
     }
 }
@@ -173,6 +175,7 @@ final class DetailsViewController: UIViewController {
 extension DetailsViewController: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         snapshotImageView.removeFromSuperview()
+        isAnimating = false
     }
 }
 
