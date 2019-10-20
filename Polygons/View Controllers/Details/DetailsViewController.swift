@@ -20,7 +20,7 @@ final class DetailsViewController: UIViewController {
     @IBOutlet private var personViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private var personViewTrailingConstraint: NSLayoutConstraint!
     
-    private var data: CellData
+    var data: CellData
     
     init(cellData: CellData) {
         data = cellData

@@ -38,7 +38,8 @@ final class ListViewModel {
         guard let person = persons[safe: index] else { return nil }
         
         let sidesNumber = Int(index / Constants.polygonGroupValue) + 3
-        return CellData(path: getPath(forSidesNumber: sidesNumber),
+        return CellData(index: index,
+                        path: getPath(forSidesNumber: sidesNumber),
                         person: person,
                         backgroundColor: getCellBackgroundColor(forIndex: index),
                         moveContent: index < Constants.polygonGroupValue,

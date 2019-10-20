@@ -10,7 +10,7 @@ import UIKit
 
 final class PersonView: UIView {
     
-    private enum Constants {
+    enum Constants {
         static let borderWidth: CGFloat = 8
     }
     
