@@ -82,16 +82,18 @@ final class DetailsViewController: UIViewController {
             buttonsView.isHidden = isAnimating
         }
     }
+    private var animationDuration: Double {
+        return isDismising ? Constants.onExitChangeStyleAnimationDuration : Constants.changeStyleAnimationDuration
+    }
     
     @IBAction func panGestureAction(_ sender: UIPanGestureRecognizer) {
         guard sender.state == .ended else { return }
         
         let translation = sender.translation(in: view)
-        
         if translation.y > 50 {
             changeStyle()
         } else if translation.y < -50 {
-            // TODO:
+            // TODO: animation from bottom
         }
     }
     
@@ -159,28 +161,21 @@ final class DetailsViewController: UIViewController {
     }
 
     private func showMask() {
-        let startPath = getPath(forMaskType: .start)
-        let endPath = getPath(forMaskType: .end)
+        let startPath = WavePath(phase: .start).cgPath
+        let endPath = WavePath(phase: .end).cgPath
 
         let maskLayer = CAShapeLayer()
         maskLayer.path = startPath
         snapshotImageView.layer.mask = maskLayer
         
         let animation = CABasicAnimation(keyPath: "path")
-        animation.duration = isDismising ? Constants.onExitChangeStyleAnimationDuration : Constants.changeStyleAnimationDuration
+        animation.duration = animationDuration
         animation.fromValue = startPath
         animation.toValue = endPath
         animation.delegate = self
         
         maskLayer.add(animation, forKey: nil)
         maskLayer.path = endPath
-    }
-        
-    private func getPath(forMaskType maskType: MaskType) -> CGPath {
-        switch maskType {
-        case .start: return WavePath(phase: .start).cgPath
-        case .end: return WavePath(phase: .end).cgPath
-        }
     }
 }
 

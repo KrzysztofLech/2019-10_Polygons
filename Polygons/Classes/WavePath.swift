@@ -25,7 +25,7 @@ final class WavePath: UIBezierPath {
         super.init()
         
         createPath(forPhase: phase)
-        firPathToDevice()
+        fitPathToDevice()
     }
     
     required init?(coder: NSCoder) {
@@ -60,7 +60,7 @@ final class WavePath: UIBezierPath {
         close()
     }
     
-    private func firPathToDevice() {
+    private func fitPathToDevice() {
         let width = UIScreen.main.bounds.width
         let aspect = width / 400
         let transform = CGAffineTransform(scaleX: aspect, y: 1)
