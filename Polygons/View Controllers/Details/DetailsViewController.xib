@@ -60,7 +60,7 @@
                                     <rect key="frame" x="80" y="80" width="214" height="214"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_m1" translatesAutoresizingMaskIntoConstraints="NO" id="KTt-fB-fZP">
-                                            <rect key="frame" x="11.5" y="0.0" width="191" height="191"/>
+                                            <rect key="frame" x="16" y="0.0" width="182" height="182"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="KTt-fB-fZP" secondAttribute="height" multiplier="1:1" id="HQu-nD-2wo"/>
                                             </constraints>
@@ -74,18 +74,18 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ns9-Wd-3sk" userLabel="H Line">
-                                            <rect key="frame" x="53.5" y="191" width="107" height="1"/>
+                                            <rect key="frame" x="53.5" y="182" width="107" height="1"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="uvE-pU-afg"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMy-XL-CgD">
-                                            <rect key="frame" x="53.5" y="196" width="107" height="18"/>
+                                            <rect key="frame" x="53.5" y="187" width="107" height="27"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="18" id="aYc-c0-LVm"/>
+                                                <constraint firstAttribute="height" constant="27" id="aYc-c0-LVm"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="19"/>
                                             <color key="textColor" name="Color1-0"/>
                                             <nil key="highlightedColor"/>
                                         </label>
