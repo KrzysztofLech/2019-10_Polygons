@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="Polygons" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="8rA-4h-BdT" id="r8D-6k-Lzg"/>
                 <outlet property="buttonsView" destination="NFR-lc-02Y" id="qQb-UJ-4ap"/>
                 <outlet property="personView" destination="2vb-XX-RX2" id="f9A-CT-1w4"/>
                 <outlet property="personViewLeadingConstraint" destination="JV8-6e-2Z8" id="FKj-69-Z3b"/>
@@ -148,11 +149,26 @@
                                 <action selector="backButtonAction" destination="-1" eventType="touchUpInside" id="fmM-qE-KPg"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLc-Y5-bJD">
+                            <rect key="frame" x="370" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="i0t-XO-xk6"/>
+                            </constraints>
+                            <state key="normal" title="SET">
+                                <color key="titleColor" name="Color1-3"/>
+                            </state>
+                            <connections>
+                                <action selector="changeStyleButtonAction" destination="-1" eventType="touchUpInside" id="dx8-oO-5Mc"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="lmx-3A-dRP" secondAttribute="bottom" id="36M-Ys-HUf"/>
                         <constraint firstItem="lmx-3A-dRP" firstAttribute="leading" secondItem="NFR-lc-02Y" secondAttribute="leading" id="EPN-9y-uzd"/>
+                        <constraint firstAttribute="bottom" secondItem="vLc-Y5-bJD" secondAttribute="bottom" id="WCV-fX-JrT"/>
+                        <constraint firstAttribute="trailing" secondItem="vLc-Y5-bJD" secondAttribute="trailing" id="Zqo-6e-c8y"/>
+                        <constraint firstItem="vLc-Y5-bJD" firstAttribute="top" secondItem="NFR-lc-02Y" secondAttribute="top" id="bbP-tP-Fhj"/>
                         <constraint firstItem="lmx-3A-dRP" firstAttribute="top" secondItem="NFR-lc-02Y" secondAttribute="top" id="mDY-Cu-Jqe"/>
                         <constraint firstAttribute="height" constant="44" id="wf8-RG-BcP"/>
                     </constraints>

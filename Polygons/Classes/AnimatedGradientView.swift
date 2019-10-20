@@ -59,4 +59,9 @@ final class AnimatedGradientView: UIView {
 
         gradientLayer.add(gradientAnimation, forKey: nil)
     }
+    
+    func refreshGradient() {
+        gradientLayer.removeFromSuperlayer()
+        setup()
+    }
 }

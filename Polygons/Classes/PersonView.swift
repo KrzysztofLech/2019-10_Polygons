@@ -20,6 +20,8 @@ final class PersonView: UIView {
     @IBOutlet private var personNameLabel: UILabel!
     @IBOutlet private var yContentPositionConstraint: NSLayoutConstraint!
     
+    var borderColor = Colors.color1
+    
     private var moveContent = false
     private var path = UIBezierPath()
     private var borderLayer = CAShapeLayer()
@@ -52,7 +54,7 @@ final class PersonView: UIView {
         layoutIfNeeded()
     }
     
-    private func setupBackgroundColor() {
+    func setupBackgroundColor() {
         bgView.setNeedsDisplay()
     }
         
@@ -62,13 +64,13 @@ final class PersonView: UIView {
         containerView.layer.mask = maskLayer
     }
     
-    private func addBorder() {
+    func addBorder() {
         borderLayer.removeFromSuperlayer()
         
         borderLayer = CAShapeLayer()
         borderLayer.path = path.cgPath
         borderLayer.fillColor = UIColor.clear.cgColor
-        borderLayer.strokeColor = Colors.color1.cgColor
+        borderLayer.strokeColor = borderColor.cgColor
         borderLayer.lineWidth = Constants.borderWidth
         borderLayer.lineJoin = .round
         borderLayer.lineCap = .round
