@@ -18,16 +18,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polygons" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                <rect key="frame" x="126" y="691" width="162.5" height="55"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="40"/>
+                                <rect key="frame" x="150" y="757.5" width="114" height="38.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="28"/>
                                 <color key="textColor" name="Color1-1"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launcgScreen_image" translatesAutoresizingMaskIntoConstraints="NO" id="PCY-2m-MK8">
+                                <rect key="frame" x="60" y="-64" width="294" height="1024"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" name="Color1-5"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="GJd-Yh-RWb" secondAttribute="bottom" constant="150" id="H4K-64-lIK"/>
+                            <constraint firstItem="PCY-2m-MK8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2ve-rH-fPx"/>
+                            <constraint firstItem="PCY-2m-MK8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="B72-HE-Mvn"/>
+                            <constraint firstAttribute="bottom" secondItem="GJd-Yh-RWb" secondAttribute="bottom" constant="100" id="H4K-64-lIK"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Mfr-wk-nFj"/>
+                            <constraint firstAttribute="trailing" secondItem="PCY-2m-MK8" secondAttribute="trailing" constant="60" id="Wbl-y9-nj3"/>
+                            <constraint firstItem="PCY-2m-MK8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="60" id="Z7f-eR-Xc2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
@@ -38,6 +45,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="launcgScreen_image" width="512" height="512"/>
         <namedColor name="Color1-1">
             <color red="0.9137254901960784" green="0.64313725490196083" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
