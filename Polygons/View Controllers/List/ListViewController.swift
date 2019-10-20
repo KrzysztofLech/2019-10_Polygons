@@ -57,6 +57,27 @@ final class ListViewController: UIViewController {
     @IBAction private func backButtonAction() {
         dismiss(animated: true)
     }
+    
+    private func animateCell(_ cell: UICollectionViewCell?, completion: @escaping ()->()) {
+        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: .calculationModeCubicPaced, animations: {
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.2) {
+                cell?.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.1) {
+                 cell?.transform = CGAffineTransform.identity
+             }
+            
+         }) { _ in completion() }
+    }
+    
+    private func navigateToDetailsController(dataIndex: Int) {
+        guard let cellData = viewModel.getCellData(forIndex: dataIndex) else { return }
+        let detailsViewController = DetailsViewController(cellData: cellData)
+        detailsViewController.transitioningDelegate = detailsTransition
+        present(detailsViewController, animated: true)
+    }
 }
 
 // MARK: - Collection View methods
@@ -96,9 +117,9 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
 
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cellData = viewModel.getCellData(forIndex: indexPath.item) else { return }
-        let detailsViewController = DetailsViewController(cellData: cellData)
-        detailsViewController.transitioningDelegate = detailsTransition
-        present(detailsViewController, animated: true)
+        let cell = collectionView.cellForItem(at: indexPath)
+        animateCell(cell) { [weak self] in
+            self?.navigateToDetailsController(dataIndex: indexPath.item)
+        }
     }
 }
