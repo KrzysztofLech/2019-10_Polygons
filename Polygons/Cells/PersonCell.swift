@@ -24,6 +24,8 @@ final class PersonCell: UICollectionViewCell {
     private var path = UIBezierPath()
     private var borderLayer = CAShapeLayer()
     
+    var borderColor = Colors.color1
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -68,7 +70,7 @@ final class PersonCell: UICollectionViewCell {
         borderLayer = CAShapeLayer()
         borderLayer.path = path.cgPath
         borderLayer.fillColor = UIColor.clear.cgColor
-        borderLayer.strokeColor = Colors.color1.cgColor
+        borderLayer.strokeColor = borderColor.cgColor
         borderLayer.lineWidth = Constants.borderWidth
         borderLayer.lineJoin = .round
         borderLayer.lineCap = .round

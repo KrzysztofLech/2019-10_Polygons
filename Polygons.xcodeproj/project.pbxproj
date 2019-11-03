@@ -85,7 +85,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B05DFB523576CBD00958B80 /* Classes */ = {
+		6B05DFB523576CBD00958B80 /* UIKit components */ = {
 			isa = PBXGroup;
 			children = (
 				6B3BC8F62354EBCA00490A3E /* AddPersonButton.swift */,
@@ -96,7 +96,7 @@
 				6B8700D9235CA11C00761595 /* WavePath.swift */,
 				6BF697C8235B42C900372002 /* PersonView.swift */,
 			);
-			path = Classes;
+			path = "UIKit components";
 			sourceTree = "<group>";
 		};
 		6B1983DE2354BB5E007E2FDC = {
@@ -124,7 +124,7 @@
 				6B78F22E2354BEF700401CC9 /* View Controllers */,
 				6B78F2362354BF5100401CC9 /* Models */,
 				6B78F2352354BF5100401CC9 /* Cells */,
-				6B05DFB523576CBD00958B80 /* Classes */,
+				6B05DFB523576CBD00958B80 /* UIKit components */,
 				6B78F2382354BF5100401CC9 /* Extensions */,
 				6B78F2432354BF5B00401CC9 /* Other */,
 			);
