@@ -88,13 +88,10 @@
 		6B05DFB523576CBD00958B80 /* UIKit components */ = {
 			isa = PBXGroup;
 			children = (
-				6B3BC8F62354EBCA00490A3E /* AddPersonButton.swift */,
-				6BEAD779235987DB00E91DF5 /* RippleButton.swift */,
-				6B4F73AE2358DA630056B66B /* GradientView.swift */,
-				6B4F73B02358DFB10056B66B /* AnimatedGradientView.swift */,
-				6B05DFB623576CFE00958B80 /* PolygonPath.swift */,
-				6B8700D9235CA11C00761595 /* WavePath.swift */,
-				6BF697C8235B42C900372002 /* PersonView.swift */,
+				6BE14391236F5CB900E2267A /* Buttons */,
+				6BE14393236F5D2D00E2267A /* Path */,
+				6B78F2352354BF5100401CC9 /* Cells */,
+				6BE14392236F5CD200E2267A /* Views */,
 			);
 			path = "UIKit components";
 			sourceTree = "<group>";
@@ -121,9 +118,8 @@
 				6BE1438F236F213B00E2267A /* AppSettings.swift */,
 				6B1983F62354BB60007E2FDC /* Info.plist */,
 				6B1983EA2354BB5F007E2FDC /* AppDelegate.swift */,
-				6B78F22E2354BEF700401CC9 /* View Controllers */,
+				6B78F22E2354BEF700401CC9 /* Modules */,
 				6B78F2362354BF5100401CC9 /* Models */,
-				6B78F2352354BF5100401CC9 /* Cells */,
 				6B05DFB523576CBD00958B80 /* UIKit components */,
 				6B78F2382354BF5100401CC9 /* Extensions */,
 				6B78F2432354BF5B00401CC9 /* Other */,
@@ -151,14 +147,14 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
-		6B78F22E2354BEF700401CC9 /* View Controllers */ = {
+		6B78F22E2354BEF700401CC9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				6B78F22F2354BEF700401CC9 /* Start */,
 				6B5A87482355056B007E41F3 /* List */,
 				6B765CB2235A0FD20012C067 /* Details */,
 			);
-			path = "View Controllers";
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		6B78F22F2354BEF700401CC9 /* Start */ = {
@@ -209,6 +205,34 @@
 				6B78F2442354BFD200401CC9 /* LaunchScreen.storyboard */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		6BE14391236F5CB900E2267A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				6BEAD779235987DB00E91DF5 /* RippleButton.swift */,
+				6B3BC8F62354EBCA00490A3E /* AddPersonButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		6BE14392236F5CD200E2267A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6B4F73AE2358DA630056B66B /* GradientView.swift */,
+				6B4F73B02358DFB10056B66B /* AnimatedGradientView.swift */,
+				6BF697C8235B42C900372002 /* PersonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6BE14393236F5D2D00E2267A /* Path */ = {
+			isa = PBXGroup;
+			children = (
+				6B05DFB623576CFE00958B80 /* PolygonPath.swift */,
+				6B8700D9235CA11C00761595 /* WavePath.swift */,
+			);
+			path = Path;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

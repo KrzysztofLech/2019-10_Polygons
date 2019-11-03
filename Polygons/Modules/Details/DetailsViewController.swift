@@ -14,6 +14,7 @@ final class DetailsViewController: UIViewController {
         static let padding: CGFloat = 20
         static let changeStyleAnimationDuration = 2.0
         static let onExitChangeStyleAnimationDuration = 0.5
+        static let borderWidth: CGFloat = 8
     }
     
     @IBOutlet var buttonsView: UIView!
@@ -49,7 +50,7 @@ final class DetailsViewController: UIViewController {
         let size = UIScreen.main.bounds.width - Constants.padding * 2
         data.path = PolygonPath(sidesNumber: data.sides, size: Double(size))
 
-        personView.configure(withData: data)
+        personView.configure(withData: data, borderWidth: Constants.borderWidth)
     }
     
     @IBAction func backButtonAction() {
@@ -133,7 +134,7 @@ final class DetailsViewController: UIViewController {
                                     backgroundColor: currentStyle.personViewBackgroundColor,
                                     moveContent: data.moveContent,
                                     sides: data.sides)
-        personView.configure(withData: newStyleData)
+        personView.configure(withData: newStyleData, borderWidth: Constants.borderWidth)
         personView.setupBackgroundColor()
         
         personView.borderColor = currentStyle.personViewBorderColor

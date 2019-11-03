@@ -9,11 +9,7 @@
 import UIKit
 
 final class PersonView: UIView {
-    
-    private enum Constants {
-        static let borderWidth: CGFloat = 8
-    }
-    
+        
     @IBOutlet private var bgView: GradientView!
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var personAvatarImageView: UIImageView!
@@ -25,6 +21,7 @@ final class PersonView: UIView {
     private var moveContent = false
     private var path = UIBezierPath()
     private var borderLayer = CAShapeLayer()
+    private var borderWidth: CGFloat = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +32,10 @@ final class PersonView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        showContent()
+    }
+    
+    func showContent() {
         moveContentIfNeeded()
         setupBackgroundColor()
         createPolygonalMask()
@@ -71,18 +72,19 @@ final class PersonView: UIView {
         borderLayer.path = path.cgPath
         borderLayer.fillColor = UIColor.clear.cgColor
         borderLayer.strokeColor = borderColor.cgColor
-        borderLayer.lineWidth = Constants.borderWidth
+        borderLayer.lineWidth = borderWidth
         borderLayer.lineJoin = .round
         borderLayer.lineCap = .round
         
         layer.addSublayer(borderLayer)
     }
         
-    func configure(withData data: CellData) {
+    func configure(withData data: CellData, borderWidth: CGFloat) {
         moveContent = data.moveContent
         bgView.middleColor = data.backgroundColor
         path = data.path
         personAvatarImageView.image = data.person.avatar
         personNameLabel.text = data.person.name
+        self.borderWidth = borderWidth
     }
 }
