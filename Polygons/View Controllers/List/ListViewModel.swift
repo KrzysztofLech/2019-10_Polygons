@@ -6,24 +6,18 @@
 //  Copyright © 2019 Krzysztof Lech. All rights reserved.
 //
 
-import UIKit
-
 final class ListViewModel {
     
-    private enum Constants {
-        static let polygonGroupValue: Int = 5
-    }
-
     private let personsQuantity: Int
-    private let cellSize: CGSize
+    private let cellWidth: Double
     
     private lazy var persons: [Person] = {
         return generateData()
     }()
     
-    init(personsQuantity: Int, cellSize: CGSize) {
+    init(personsQuantity: Int, cellWidth: Double) {
         self.personsQuantity = personsQuantity
-        self.cellSize = cellSize
+        self.cellWidth = cellWidth
     }
     
     private func generateData() -> [Person] {
@@ -37,34 +31,12 @@ final class ListViewModel {
     func getCellData(forIndex index: Int) -> CellData? {
         guard let person = persons[safe: index] else { return nil }
         
-        let sidesNumber = Int(index / Constants.polygonGroupValue) + 3
-        return CellData(path: getPath(forSidesNumber: sidesNumber),
+        let sidesNumber = Int(index / AppSettings.groupElementsNumber) + 3
+        let backgroundColor = Colors.cellBackgroundColors[index % AppSettings.groupElementsNumber]
+        return CellData(path: PolygonPath(sidesNumber: sidesNumber, size: cellWidth),
                         person: person,
-                        backgroundColor: getCellBackgroundColor(forIndex: index),
-                        moveContent: index < Constants.polygonGroupValue,
+                        backgroundColor: backgroundColor,
+                        moveContent: index < AppSettings.groupElementsNumber,
                         sides: sidesNumber)
-    }
-    
-    private func getPath(forSidesNumber sides: Int) -> UIBezierPath {
-        return PolygonPath(sidesNumber: sides, size: cellSize.width)
-    }
-    
-    private func getCellBackgroundColor(forIndex index: Int) -> UIColor {
-        let indexValue = index % Constants.polygonGroupValue + 1
-        
-        switch indexValue {
-        case 1: return UIColor.red
-        case 2: return UIColor.white
-        case 3: return Colors.color1
-        case 4: return UIColor.green
-        case 5: return UIColor.blue
-        default: return UIColor.clear
-        }
-        
-        // version 2: one color shades
-        //
-        // let alphaValue = 0.2 * CGFloat(indexValue)
-        // let color = Colors.color1
-        // return color.withAlphaComponent(alphaValue)
     }
 }

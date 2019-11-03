@@ -16,9 +16,9 @@ final class PolygonPath: UIBezierPath {
         return size * 0.05
     }()
     
-    init(sidesNumber: Int, size: CGFloat) {
+    init(sidesNumber: Int, size: Double) {
         self.sidesNumber = sidesNumber
-        self.size = size
+        self.size = CGFloat(size)
         super.init()
         
         createPath()

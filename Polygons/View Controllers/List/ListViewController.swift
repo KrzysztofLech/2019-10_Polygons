@@ -29,7 +29,7 @@ final class ListViewController: UIViewController {
         
         let cellWidth = UIScreen.main.bounds.width - Constants.outerPadding * 2
         cellSize = CGSize(width: cellWidth, height: cellWidth)
-        self.viewModel = ListViewModel(personsQuantity: personNumber, cellSize: cellSize)
+        self.viewModel = ListViewModel(personsQuantity: personNumber, cellWidth: Double(cellWidth))
         
         super.init(nibName: nil, bundle: nil)
     }

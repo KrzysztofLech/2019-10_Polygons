@@ -47,7 +47,7 @@ final class DetailsViewController: UIViewController {
         personView.layoutIfNeeded()
         
         let size = UIScreen.main.bounds.width - Constants.padding * 2
-        data.path = PolygonPath(sidesNumber: data.sides, size: size)
+        data.path = PolygonPath(sidesNumber: data.sides, size: Double(size))
 
         personView.configure(withData: data)
     }
