@@ -11,7 +11,7 @@ import UIKit
 final class HorizontalFlowLayout: UICollectionViewFlowLayout {
     
     private let cellSize: CGSize
-    private let defaultItemScale: CGFloat = 0.7
+    private let defaultItemScale: CGFloat = 0.6
     
     // MARK: - Init -
     
@@ -33,12 +33,11 @@ final class HorizontalFlowLayout: UICollectionViewFlowLayout {
         itemSize = cellSize
         
         let horizontalMargin = (collectionView!.frame.width - cellSize.width)/2
-        let verticalMargin =  (collectionView!.frame.height - cellSize.height)/2
-        sectionInset = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
+        sectionInset = UIEdgeInsets(top: 0, left: horizontalMargin, bottom: 0, right: horizontalMargin)
         minimumLineSpacing = 10
     }
 
-    
+
     // MARK: - Attributes methods -
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

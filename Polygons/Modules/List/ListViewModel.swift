@@ -9,15 +9,14 @@
 final class ListViewModel {
     
     private let personsQuantity: Int
-    private let cellWidth: Double
+    var cellWidth = 0.0
     
     private lazy var persons: [Person] = {
         return generateData()
     }()
     
-    init(personsQuantity: Int, cellWidth: Double) {
+    init(personsQuantity: Int) {
         self.personsQuantity = personsQuantity
-        self.cellWidth = cellWidth
     }
     
     private func generateData() -> [Person] {

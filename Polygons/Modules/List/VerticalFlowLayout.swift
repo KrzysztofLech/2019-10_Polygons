@@ -32,13 +32,12 @@ final class VerticalFlowLayout: UICollectionViewFlowLayout {
         scrollDirection = .vertical
         itemSize = cellSize
         
-        let horizontalMargin = (collectionView!.frame.width - cellSize.width)/2
         let verticalMargin =  (collectionView!.frame.height - cellSize.height)/2
-        sectionInset = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
+        sectionInset = UIEdgeInsets(top: verticalMargin, left: 0, bottom: verticalMargin, right: 0)
         minimumLineSpacing = 10
     }
 
-    
+
     // MARK: - Attributes methods -
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

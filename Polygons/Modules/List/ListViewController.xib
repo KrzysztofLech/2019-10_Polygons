@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListViewController" customModule="Polygons" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="NmJ-RY-gtU" id="daS-0C-spp"/>
+                <outlet property="toolBarView" destination="WaS-WL-DRM" id="kqo-Qb-Tt2"/>
                 <outlet property="topView" destination="WFc-lq-z3G" id="ZtM-J1-Xfc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

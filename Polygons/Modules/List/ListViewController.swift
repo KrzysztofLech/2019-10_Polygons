@@ -15,11 +15,20 @@ final class ListViewController: UIViewController {
     }
     
     @IBOutlet var topView: UIView!
+    @IBOutlet var toolBarView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
     private var portraitMode = true
     private let personNumber: Int
-    private let cellSize: CGSize
+    private var cellSize: CGSize {
+        var value: CGFloat = 0
+        if isPortrait {
+            value = UIScreen.main.bounds.width - Constants.outerPadding * 2
+        } else {
+            value = UIScreen.main.bounds.height - toolBarView.frame.height * 2
+        }
+        return  CGSize(width: value, height: value)
+    }
     private let viewModel: ListViewModel
     private let detailsTransition = DetailsTransition()
     
@@ -28,10 +37,7 @@ final class ListViewController: UIViewController {
     
     init(personNumber: Int) {
         self.personNumber = personNumber
-        
-        let cellWidth = UIScreen.main.bounds.width - Constants.outerPadding * 2
-        cellSize = CGSize(width: cellWidth, height: cellWidth)
-        self.viewModel = ListViewModel(personsQuantity: personNumber, cellWidth: Double(cellWidth))
+        self.viewModel = ListViewModel(personsQuantity: personNumber)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,6 +51,7 @@ final class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.cellWidth = Double(cellSize.width)
         portraitMode = isPortrait
         setupCollectionView()
     }
@@ -53,10 +60,9 @@ final class ListViewController: UIViewController {
         super.viewWillLayoutSubviews()
 
         guard portraitMode != isPortrait else { return }
-        changeCollectionViewLayout()
-        portraitMode = isPortrait
+        setLayoutForNewOrientation()
     }
-        
+            
     // MARK: - Setup methods
     
     private func setupCollectionView() {
@@ -65,11 +71,16 @@ final class ListViewController: UIViewController {
     }
     
     private func changeCollectionViewLayout() {
-        
-        
         let horizontalLayout = HorizontalFlowLayout(cellSize: cellSize)
         let verticalLayout = VerticalFlowLayout(cellSize: cellSize)
         collectionView.collectionViewLayout = isPortrait ? verticalLayout : horizontalLayout
+    }
+    
+    private func setLayoutForNewOrientation() {
+        changeCollectionViewLayout()
+        portraitMode = isPortrait
+        viewModel.cellWidth = Double(cellSize.width)
+        collectionView.reloadData()
     }
     
     // MARK: - Other
