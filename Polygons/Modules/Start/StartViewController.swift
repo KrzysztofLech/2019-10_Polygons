@@ -8,12 +8,19 @@ import UIKit
 final class StartViewController: UIViewController {
     
     @IBOutlet private var backgroundView: AnimatedGradientView!
+    @IBOutlet private var stackView: UIStackView!
     @IBOutlet private var personsNumberLabel: UILabel!
-    @IBOutlet private var addButtons: [AddPersonButton]!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         backgroundView.startAnimation()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        stackView.axis = isPortrait ? .vertical : .horizontal
     }
     
     private var personNumber = 20 {

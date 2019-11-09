@@ -24,6 +24,12 @@ final class AnimatedGradientView: UIView {
         super.awakeFromNib()
         setup()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setGradientLayerFrame()
+    }
         
     private func setup() {
         gradientLayer.colors = [
@@ -40,14 +46,16 @@ final class AnimatedGradientView: UIView {
         let locations = [0.0, 0.25, 0.5, 0.75, 1.0]
         gradientLayer.locations = locations as [NSNumber]?
         
-        
+        layer.addSublayer(gradientLayer)
+    }
+    
+    private func setGradientLayerFrame() {
         let viewWidth = UIScreen.main.bounds.width
         let viewHeight = UIScreen.main.bounds.height
         gradientLayer.frame = CGRect( x: -viewWidth,
                                       y: 0,
                                       width: viewWidth * 2,
                                       height: viewHeight)
-        layer.addSublayer(gradientLayer)
     }
     
     func startAnimation() {
