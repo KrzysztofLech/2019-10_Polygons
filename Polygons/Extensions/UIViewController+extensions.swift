@@ -10,4 +10,8 @@ extension UIViewController {
     static func toString() -> String {
         return String(describing: self)
     }
+    
+    var isPortrait: Bool {
+        return UIScreen.main.bounds.width < UIScreen.main.bounds.height
+    }
 }

@@ -11,16 +11,18 @@ import UIKit
 final class ListViewController: UIViewController {
     
     private enum Constants {
-        static let outerPadding: CGFloat = UIScreen.main.bounds.width * 0.2
+        static let outerPadding: CGFloat = UIScreen.main.bounds.width * 0.1
     }
     
     @IBOutlet var topView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
+    private var portraitMode = true
     private let personNumber: Int
     private let cellSize: CGSize
     private let viewModel: ListViewModel
     private let detailsTransition = DetailsTransition()
+    
     
     // MARK: - init methods
     
@@ -43,13 +45,31 @@ final class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        portraitMode = isPortrait
         setupCollectionView()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        guard portraitMode != isPortrait else { return }
+        changeCollectionViewLayout()
+        portraitMode = isPortrait
+    }
+        
     // MARK: - Setup methods
     
     private func setupCollectionView() {
         collectionView.register(cellAndNibName: PersonCell.toString())
+        changeCollectionViewLayout()
+    }
+    
+    private func changeCollectionViewLayout() {
+        
+        
+        let horizontalLayout = HorizontalFlowLayout(cellSize: cellSize)
+        let verticalLayout = VerticalFlowLayout(cellSize: cellSize)
+        collectionView.collectionViewLayout = isPortrait ? verticalLayout : horizontalLayout
     }
     
     // MARK: - Other
@@ -59,16 +79,24 @@ final class ListViewController: UIViewController {
     }
     
     private func animateCell(_ cell: UICollectionViewCell?, completion: @escaping ()->()) {
+        let initialTransformationValue = cell?.transform.a ?? 0
+        let isIdentity = cell?.transform.isIdentity ?? false
+
         UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: .calculationModeCubicPaced, animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.2) {
-                cell?.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                let transformationValue = initialTransformationValue * 1.2
+                cell?.transform = CGAffineTransform(scaleX: transformationValue, y: transformationValue)
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.1) {
-                 cell?.transform = CGAffineTransform.identity
+                if isIdentity {
+                    cell?.transform = CGAffineTransform.identity
+                } else {
+                    cell?.transform = CGAffineTransform(scaleX: initialTransformationValue, y: initialTransformationValue)
+                }
              }
-            
+
          }) { _ in completion() }
     }
     
@@ -98,23 +126,23 @@ extension ListViewController: UICollectionViewDataSource {
     }
 }
 
-extension ListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return cellSize
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: Constants.outerPadding,
-                            left: Constants.outerPadding,
-                            bottom: Constants.outerPadding,
-                            right: Constants.outerPadding)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return Constants.outerPadding
-    }
-}
-
+//extension ListViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return cellSize
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: Constants.outerPadding,
+//                            left: Constants.outerPadding,
+//                            bottom: Constants.outerPadding,
+//                            right: Constants.outerPadding)
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return Constants.outerPadding
+//    }
+//}
+//
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
