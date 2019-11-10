@@ -58,7 +58,7 @@ final class DetailsViewController: UIViewController {
             return
         }
         
-        isDismising = true
+        isDismissing = true
         changeStyle()
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.onExitChangeStyleAnimationDuration) { [weak self] in
             self?.dismiss(animated: true)
@@ -76,14 +76,14 @@ final class DetailsViewController: UIViewController {
     private var colorStyles = ColorStyles()
     private var currentStyle = ColorStyle()
     private var isStyleModified = false
-    private var isDismising = false
+    private var isDismissing = false
     private var isAnimating = false {
         didSet {
             buttonsView.isHidden = isAnimating
         }
     }
     private var animationDuration: Double {
-        return isDismising ? Constants.onExitChangeStyleAnimationDuration : Constants.changeStyleAnimationDuration
+        return isDismissing ? Constants.onExitChangeStyleAnimationDuration : Constants.changeStyleAnimationDuration
     }
     
     @IBAction func panGestureAction(_ sender: UIPanGestureRecognizer) {
