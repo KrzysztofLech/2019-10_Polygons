@@ -12,4 +12,5 @@ enum AppSettings {
     static let groupElementsNumber = 5
     static let cellPolygonBorderWidth: CGFloat = 7
     static let detailsPolygonBorderWidth: CGFloat = 8
+    static let smallItemScale: CGFloat = 0.4
 }

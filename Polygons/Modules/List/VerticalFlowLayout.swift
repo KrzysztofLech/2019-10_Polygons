@@ -11,7 +11,6 @@ import UIKit
 final class VerticalFlowLayout: UICollectionViewFlowLayout {
     
     private let cellSize: CGSize
-    private let defaultItemScale: CGFloat = 0.6
     
     // MARK: - Init -
     
@@ -60,7 +59,7 @@ final class VerticalFlowLayout: UICollectionViewFlowLayout {
         let scaleDistance = min(actualDistance, maxDistance)
         
         let ratio = (maxDistance - scaleDistance) / maxDistance
-        let scale = defaultItemScale + ratio * (1 - defaultItemScale)
+        let scale = AppSettings.smallItemScale + ratio * (1 - AppSettings.smallItemScale)
         
         attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
     }
