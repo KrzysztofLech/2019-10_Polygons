@@ -19,16 +19,21 @@ final class DetailsViewController: UIViewController {
     @IBOutlet var buttonsView: UIView!
     @IBOutlet var personView: PersonView!
     @IBOutlet private var backgroundView: AnimatedGradientView!
-    
-    @IBOutlet private var personViewLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet private var personViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private var personViewWidthConstraint: NSLayoutConstraint!
     
     private var data: CellData
+    private var personViewWidth: CGFloat {
+        return min(screenWidth, screenHeight) - Constants.padding * 2
+    }
+    
+    // MARK: - init methods
     
     init(cellData: CellData) {
         data = cellData
         super.init(nibName: nil, bundle: nil)
     }
+    
+    override var prefersHomeIndicatorAutoHidden: Bool { return true }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,15 +47,14 @@ final class DetailsViewController: UIViewController {
     }
     
     private func setupPersonView() {
-        personViewLeadingConstraint.constant = Constants.padding
-        personViewTrailingConstraint.constant = Constants.padding
+        personViewWidthConstraint.constant = personViewWidth
         personView.layoutIfNeeded()
         
-        let size = UIScreen.main.bounds.width - Constants.padding * 2
-        data.path = PolygonPath(sidesNumber: data.sides, size: Double(size))
-
+        data.path = PolygonPath(sidesNumber: data.sides, size: Double(personViewWidth))
         personView.configure(withData: data, borderWidth: AppSettings.detailsPolygonBorderWidth)
     }
+    
+    // MARK: - Navigation methods
     
     @IBAction func backButtonAction() {
         guard isStyleModified else {

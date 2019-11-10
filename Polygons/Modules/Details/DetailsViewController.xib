@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,8 +14,7 @@
                 <outlet property="backgroundView" destination="8rA-4h-BdT" id="r8D-6k-Lzg"/>
                 <outlet property="buttonsView" destination="NFR-lc-02Y" id="qQb-UJ-4ap"/>
                 <outlet property="personView" destination="2vb-XX-RX2" id="f9A-CT-1w4"/>
-                <outlet property="personViewLeadingConstraint" destination="JV8-6e-2Z8" id="FKj-69-Z3b"/>
-                <outlet property="personViewTrailingConstraint" destination="xde-Ug-00r" id="A7b-4y-GZ8"/>
+                <outlet property="personViewWidthConstraint" destination="HT8-4v-gvF" id="js4-Gu-LKo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -37,13 +36,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vb-XX-RX2" customClass="PersonView" customModule="Polygons" customModuleProvider="target">
-                    <rect key="frame" x="20" y="261" width="374" height="374"/>
+                    <rect key="frame" x="57" y="298" width="300" height="300"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnn-Kj-WHy">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyr-Jo-udR" customClass="GradientView" customModule="Polygons" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
@@ -58,10 +57,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vE-us-9Rf" userLabel="Content View">
-                                    <rect key="frame" x="80" y="80" width="214" height="214"/>
+                                    <rect key="frame" x="64.5" y="64.5" width="171" height="171"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_m1" translatesAutoresizingMaskIntoConstraints="NO" id="KTt-fB-fZP">
-                                            <rect key="frame" x="16" y="0.0" width="182" height="182"/>
+                                            <rect key="frame" x="16" y="0.0" width="139" height="139"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="KTt-fB-fZP" secondAttribute="height" multiplier="1:1" id="HQu-nD-2wo"/>
                                             </constraints>
@@ -75,14 +74,14 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ns9-Wd-3sk" userLabel="H Line">
-                                            <rect key="frame" x="53.5" y="182" width="107" height="1"/>
+                                            <rect key="frame" x="42.5" y="139" width="86" height="1"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="uvE-pU-afg"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMy-XL-CgD">
-                                            <rect key="frame" x="53.5" y="187" width="107" height="27"/>
+                                            <rect key="frame" x="42.5" y="144" width="86" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="27" id="aYc-c0-LVm"/>
                                             </constraints>
@@ -122,6 +121,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="xnn-Kj-WHy" firstAttribute="leading" secondItem="2vb-XX-RX2" secondAttribute="leading" id="Dss-Hy-WRn"/>
+                        <constraint firstAttribute="width" constant="300" id="HT8-4v-gvF"/>
                         <constraint firstAttribute="width" secondItem="2vb-XX-RX2" secondAttribute="height" multiplier="1:1" id="Zt9-cq-3Md"/>
                         <constraint firstItem="xnn-Kj-WHy" firstAttribute="top" secondItem="2vb-XX-RX2" secondAttribute="top" id="fRQ-Ki-o0r"/>
                         <constraint firstAttribute="trailing" secondItem="xnn-Kj-WHy" secondAttribute="trailing" id="gfu-4T-agF"/>
@@ -177,14 +177,12 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="8rA-4h-BdT" secondAttribute="bottom" id="9rz-1b-uou"/>
                 <constraint firstItem="8rA-4h-BdT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9tI-DZ-bT2"/>
-                <constraint firstItem="2vb-XX-RX2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="JV8-6e-2Z8"/>
                 <constraint firstItem="2vb-XX-RX2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Sj6-d5-G45"/>
                 <constraint firstItem="2vb-XX-RX2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WDQ-Vk-BeX"/>
                 <constraint firstItem="8rA-4h-BdT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cXa-ln-QV8"/>
                 <constraint firstAttribute="trailing" secondItem="NFR-lc-02Y" secondAttribute="trailing" id="eBC-EJ-cJa"/>
                 <constraint firstAttribute="trailing" secondItem="8rA-4h-BdT" secondAttribute="trailing" id="k8g-NF-4tu"/>
                 <constraint firstItem="NFR-lc-02Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="weD-6C-edF"/>
-                <constraint firstAttribute="trailing" secondItem="2vb-XX-RX2" secondAttribute="trailing" constant="20" id="xde-Ug-00r"/>
                 <constraint firstItem="NFR-lc-02Y" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yFA-64-Bcm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

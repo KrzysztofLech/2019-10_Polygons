@@ -10,8 +10,16 @@ extension UIViewController {
     static func toString() -> String {
         return String(describing: self)
     }
+        
+    var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
+    var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
     
     var isPortrait: Bool {
-        return UIScreen.main.bounds.width < UIScreen.main.bounds.height
+        return screenWidth < screenHeight
     }
 }

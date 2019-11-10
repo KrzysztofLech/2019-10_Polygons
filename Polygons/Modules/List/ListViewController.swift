@@ -25,9 +25,9 @@ final class ListViewController: UIViewController {
     private var cellSize: CGSize {
         var value: CGFloat = 0
         if isPortrait {
-            value = UIScreen.main.bounds.width - Constants.outerPadding * 2
+            value = screenWidth - Constants.outerPadding * 2
         } else {
-            value = UIScreen.main.bounds.height - toolBarView.frame.height * 2
+            value = screenHeight - toolBarView.frame.height * 2
         }
         return  CGSize(width: value, height: value)
     }
