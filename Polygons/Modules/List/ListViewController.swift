@@ -20,6 +20,8 @@ final class ListViewController: UIViewController {
     
     private var portraitMode = true
     private let personNumber: Int
+    private let viewModel: ListViewModel
+    private let detailsTransition = DetailsTransition()
     private var cellSize: CGSize {
         var value: CGFloat = 0
         if isPortrait {
@@ -29,9 +31,6 @@ final class ListViewController: UIViewController {
         }
         return  CGSize(width: value, height: value)
     }
-    private let viewModel: ListViewModel
-    private let detailsTransition = DetailsTransition()
-    
     
     // MARK: - init methods
     
@@ -83,32 +82,10 @@ final class ListViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    // MARK: - Other
+    // MARK: - Navigation methods
     
     @IBAction private func backButtonAction() {
         dismiss(animated: true)
-    }
-    
-    private func animateCell(_ cell: UICollectionViewCell?, completion: @escaping ()->()) {
-        let initialTransformationValue = cell?.transform.a ?? 0
-        let isIdentity = cell?.transform.isIdentity ?? false
-
-        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: .calculationModeCubicPaced, animations: {
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.2) {
-                let transformationValue = initialTransformationValue * 1.2
-                cell?.transform = CGAffineTransform(scaleX: transformationValue, y: transformationValue)
-            }
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.1) {
-                if isIdentity {
-                    cell?.transform = CGAffineTransform.identity
-                } else {
-                    cell?.transform = CGAffineTransform(scaleX: initialTransformationValue, y: initialTransformationValue)
-                }
-             }
-
-         }) { _ in completion() }
     }
     
     private func navigateToDetailsController(dataIndex: Int) {
@@ -140,7 +117,7 @@ extension ListViewController: UICollectionViewDataSource {
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        animateCell(cell) { [weak self] in
+        cell?.tapAnimation { [weak self] in
             self?.navigateToDetailsController(dataIndex: indexPath.item)
         }
     }
