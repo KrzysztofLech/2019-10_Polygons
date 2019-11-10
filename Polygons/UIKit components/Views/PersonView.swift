@@ -47,6 +47,9 @@ final class PersonView: UIView {
         layer.shadowRadius = 20
         layer.shadowOpacity = 1.0
         layer.shadowColor = UIColor.black.cgColor
+        
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
     }
     
     private func moveContentIfNeeded() {
