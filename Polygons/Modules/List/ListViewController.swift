@@ -21,7 +21,6 @@ final class ListViewController: UIViewController {
     private var portraitMode = true
     private let personNumber: Int
     private let viewModel: ListViewModel
-    private let detailsTransition = DetailsTransition()
     private var cellSize: CGSize {
         var value: CGFloat = 0
         if isPortrait {
@@ -31,6 +30,8 @@ final class ListViewController: UIViewController {
         }
         return  CGSize(width: value, height: value)
     }
+    
+    weak var coordinator: MainCoordinator?
     
     // MARK: - init methods
     
@@ -90,9 +91,7 @@ final class ListViewController: UIViewController {
     
     private func navigateToDetailsController(dataIndex: Int) {
         guard let cellData = viewModel.getCellData(forIndex: dataIndex) else { return }
-        let detailsViewController = DetailsViewController(cellData: cellData)
-        detailsViewController.transitioningDelegate = detailsTransition
-        present(detailsViewController, animated: true)
+        coordinator?.presentPolygonDetails(cellData)
     }
 }
 

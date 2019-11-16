@@ -19,6 +19,8 @@
 		6B4F73B12358DFB10056B66B /* AnimatedGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F73B02358DFB10056B66B /* AnimatedGradientView.swift */; };
 		6B5A874B23550584007E41F3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5A874923550584007E41F3 /* ListViewController.swift */; };
 		6B5A874C23550584007E41F3 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B5A874A23550584007E41F3 /* ListViewController.xib */; };
+		6B65FBDD23805D370037E8A0 /* Coordinator Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B65FBDC23805D370037E8A0 /* Coordinator Protocols.swift */; };
+		6B6D07CE2380550000240BF4 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D07CD2380550000240BF4 /* MainCoordinator.swift */; };
 		6B765CB5235A10070012C067 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B765CB3235A10070012C067 /* DetailsViewController.swift */; };
 		6B765CB6235A10070012C067 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B765CB4235A10070012C067 /* DetailsViewController.xib */; };
 		6B78F2322354BEF700401CC9 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B78F2302354BEF700401CC9 /* StartViewController.xib */; };
@@ -57,6 +59,8 @@
 		6B4F73B02358DFB10056B66B /* AnimatedGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGradientView.swift; sourceTree = "<group>"; };
 		6B5A874923550584007E41F3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6B5A874A23550584007E41F3 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		6B65FBDC23805D370037E8A0 /* Coordinator Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator Protocols.swift"; sourceTree = "<group>"; };
+		6B6D07CD2380550000240BF4 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		6B765CB3235A10070012C067 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		6B765CB4235A10070012C067 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		6B78F2302354BEF700401CC9 /* StartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				6BE1438F236F213B00E2267A /* AppSettings.swift */,
 				6B1983F62354BB60007E2FDC /* Info.plist */,
 				6B1983EA2354BB5F007E2FDC /* AppDelegate.swift */,
+				6B6D07CC238054C500240BF4 /* Coordinators */,
 				6B78F22E2354BEF700401CC9 /* Modules */,
 				6B78F2362354BF5100401CC9 /* Models */,
 				6B05DFB523576CBD00958B80 /* UIKit components */,
@@ -143,6 +148,15 @@
 				6BA83E3C2370AECC00821A44 /* VerticalFlowLayout.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		6B6D07CC238054C500240BF4 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				6B65FBDC23805D370037E8A0 /* Coordinator Protocols.swift */,
+				6B6D07CD2380550000240BF4 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		6B765CB2235A0FD20012C067 /* Details */ = {
@@ -344,7 +358,9 @@
 				6B8700DA235CA11C00761595 /* WavePath.swift in Sources */,
 				6BA83E3B2370A69D00821A44 /* HorizontalFlowLayout.swift in Sources */,
 				6B78F2332354BEF700401CC9 /* StartViewController.swift in Sources */,
+				6B6D07CE2380550000240BF4 /* MainCoordinator.swift in Sources */,
 				6B05DFAE2357557500958B80 /* ListViewModel.swift in Sources */,
+				6B65FBDD23805D370037E8A0 /* Coordinator Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

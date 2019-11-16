@@ -11,6 +11,8 @@ final class StartViewController: UIViewController {
     @IBOutlet private var stackView: UIStackView!
     @IBOutlet private var personsNumberLabel: UILabel!
     
+    weak var coordinator: MainCoordinator?
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -38,9 +40,6 @@ final class StartViewController: UIViewController {
     }
     
     @IBAction func okButtonAction() {
-        let listViewController = ListViewController(personNumber: personNumber)
-        listViewController.modalPresentationStyle = .fullScreen
-        listViewController.modalTransitionStyle = .crossDissolve
-        present(listViewController, animated: true)
+        coordinator?.presentPolygonList(personNumber)
     }
 }
